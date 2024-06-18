@@ -1,0 +1,67 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.5.1"
+}
+
+group = 'quru.qa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.27.0",
+    assertJVersion = "3.26.0",
+    appiumJavaClientVersion = "9.2.3",
+    jacksonDatabindVersion = "2.17.1",
+    javaFakerVersion = "1.0.2",
+    junitJupiterVersion = "5.10.2",
+    lombokVersion = "1.18.32",
+    ownerVersion = "1.0.12",
+    restAssuredVersion = "5.4.0",
+    selenideVersion = "7.3.2",
+    slf4jVersion = "2.0.13",
+    retrofitVersion = '2.9.0',
+    okhttp3Version = '3.14.9'
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
+    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+    testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion"
+    testImplementation "io.appium:java-client:$appiumJavaClientVersion"
+    testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitJupiterVersion"
+    testImplementation "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.aeonbits.owner:owner:$ownerVersion"
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    testImplementation "com.codeborne:selenide:$selenideVersion"
+    testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
+    testImplementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    testImplementation "com.squareup.retrofit2:converter-jackson:${retrofitVersion}"
+    testImplementation "com.squareup.okhttp3:okhttp-urlconnection:${okhttp3Version}"
+    testImplementation "com.squareup.okhttp3:logging-interceptor:${okhttp3Version}"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
