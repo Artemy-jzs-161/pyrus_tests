@@ -18,7 +18,7 @@ public class MemberApi {
     }
 
 
-    public MembersResponseModel getAllMember(String memberId) {
+    public MembersResponseModel getAllMember() {
         return given()
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
@@ -26,7 +26,7 @@ public class MemberApi {
                 .get("v4/members")
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
-                .extract().as(MembersResponseModel.class);
+                .extract().response().as(MembersResponseModel.class);
     }
 
     public Member getMember(String memberId) {
