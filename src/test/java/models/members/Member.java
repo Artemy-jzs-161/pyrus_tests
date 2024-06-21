@@ -28,5 +28,11 @@ public class Member {
 
     @JsonProperty("external_id")
     private String externalId;
-    }
+
+
+
+}
+
+
+
 
