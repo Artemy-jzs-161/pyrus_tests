@@ -1,0 +1,10 @@
+package models.members;
+
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+public class MembersResponseModel {
+    List<Member> members;
+}

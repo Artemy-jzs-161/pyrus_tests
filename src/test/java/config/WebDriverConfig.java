@@ -19,14 +19,6 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("1920x1080")
     String getBrowserSize();
 
-    @Key("baseUrl")
-    @DefaultValue("https://app.neaktor.com/")
-    String getBaseUrl();
-
-    @Key("baseURI")
-    @DefaultValue("https://app.neaktor.com/")
-    String getBaseUri();
-
     @Key("remote_url")
     String getRemoteUrl();
 }

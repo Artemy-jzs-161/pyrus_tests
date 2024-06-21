@@ -1,67 +1,72 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
-    id "io.freefair.lombok" version "6.5.1"
+    id "io.freefair.lombok" version "8.6"
 }
-
-group = 'quru.qa'
-version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.27.0",
-    assertJVersion = "3.26.0",
-    appiumJavaClientVersion = "9.2.3",
-    jacksonDatabindVersion = "2.17.1",
-    javaFakerVersion = "1.0.2",
-    junitJupiterVersion = "5.10.2",
-    lombokVersion = "1.18.32",
-    ownerVersion = "1.0.12",
+def selenideVersion = "7.3.1",
     restAssuredVersion = "5.4.0",
-    selenideVersion = "7.3.2",
+    allureVersion = "2.27.0",
+    junitVersion = "5.10.2",
     slf4jVersion = "2.0.13",
-    retrofitVersion = '2.9.0',
-    okhttp3Version = '3.14.9'
+    assertjVersion = "3.25.3",
+    ownerVersion = "1.0.12",
+    webdrivermanagerVersion = "5.2.1",
+    aspectjweaverVersion = "1.9.22"
+
+    dependencies
+{
+    runtimeOnly "org.aspectj:aspectjweaver:$aspectjweaverVersion"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+
+    testImplementation "com.codeborne:selenide:$selenideVersion"
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    testImplementation "io.rest-assured:json-schema-validator:$restAssuredVersion"
+    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+    testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+    testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
+    testImplementation "org.aeonbits.owner:owner:$ownerVersion"
+    testImplementation "io.github.bonigarcia:webdrivermanager:5.8.0"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+
+
+
+}
 
 allure {
     report {
         version.set(allureVersion)
     }
-    adapter { // отвечает за появление папочки build/allure-results
-        aspectjWeaver.set(true) //обработка аннотации @Step
+    adapter {
+        aspectjWeaver.set(true)
         frameworks {
-            junit5 { //название фреймворка
-                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
+            junit5 {
+                adapterVersion.set(allureVersion)
             }
         }
     }
 }
 
-dependencies {
-    testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
-    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
-    testImplementation "org.assertj:assertj-core:$assertJVersion"
-    testImplementation "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion"
-    testImplementation "io.appium:java-client:$appiumJavaClientVersion"
-    testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter:$junitJupiterVersion"
-    testImplementation "org.projectlombok:lombok:$lombokVersion"
-    testImplementation "org.aeonbits.owner:owner:$ownerVersion"
-    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
-    testImplementation "com.codeborne:selenide:$selenideVersion"
-    testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
-    testImplementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-    testImplementation "com.squareup.retrofit2:converter-jackson:${retrofitVersion}"
-    testImplementation "com.squareup.okhttp3:okhttp-urlconnection:${okhttp3Version}"
-    testImplementation "com.squareup.okhttp3:logging-interceptor:${okhttp3Version}"
+compileJava {
+    options.encoding = 'UTF-8'
 }
 
-tasks.withType(JavaCompile) {
+compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
 }
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }

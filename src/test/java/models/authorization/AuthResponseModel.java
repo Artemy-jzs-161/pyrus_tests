@@ -7,10 +7,11 @@ import lombok.RequiredArgsConstructor;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthResponseModel {
-   private String access_token;
-   private String api_url;
-   private String files_url;
+   String access_token;
+   String api_url;
+   String files_url;
 
-   public AuthResponseModel(AuthRequestModel authRequestModel) {
-   }
+
+
+
 }
