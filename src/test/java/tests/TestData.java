@@ -1,4 +1,4 @@
-package tests.api;
+package tests;
 
 public class TestData {
     public String USERNAME = "carapyz54@gmail.com";

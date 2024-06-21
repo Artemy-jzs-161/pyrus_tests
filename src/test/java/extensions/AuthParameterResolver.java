@@ -1,14 +1,13 @@
 package extensions;
 
 import api.AuthorizationApi;
-import io.qameta.allure.Step;
 import models.authorization.AuthRequestModel;
 import models.authorization.AuthResponseModel;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
-import tests.api.TestData;
+import tests.TestData;
 
 public class AuthParameterResolver implements ParameterResolver {
     private static final String AUTH_TOKEN = "authToken";

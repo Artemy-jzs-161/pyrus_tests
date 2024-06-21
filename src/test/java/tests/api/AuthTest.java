@@ -1,12 +1,11 @@
 package tests.api;
 
-import api.AuthorizationApi;
-import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import lombok.Getter;
 import models.authorization.AuthRequestModel;
 import models.authorization.AuthResponseModel;
 import org.junit.jupiter.api.Test;
+import tests.TestData;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
