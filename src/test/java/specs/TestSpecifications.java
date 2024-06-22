@@ -5,9 +5,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
-import static io.restassured.filter.log.LogDetail.BODY;
-import static io.restassured.filter.log.LogDetail.STATUS;
-import static io.restassured.http.ContentType.JSON;
+import static io.restassured.filter.log.LogDetail.*;
 import static helpers.CustomAllureListener.withCustomTemplates;
 
 public class TestSpecifications {
@@ -16,8 +14,7 @@ public class TestSpecifications {
             .filter(withCustomTemplates())
             .log().uri()
             .log().body()
-            .log().headers()
-            .contentType(JSON);
+            .log().headers();
 
     public static ResponseSpecification responseSpecification(int status) {
         return new ResponseSpecBuilder().

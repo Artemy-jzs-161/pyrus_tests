@@ -8,6 +8,7 @@ import models.authorization.AuthResponseModel;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;
+import static specs.TestSpecifications.requestSpecification;
 import static specs.TestSpecifications.responseSpecification;
 
 public class AuthorizationApi {
@@ -15,6 +16,7 @@ public class AuthorizationApi {
     @Step("Авторизация пользователя")
     public AuthResponseModel authorize(AuthRequestModel authRequestModel) {
         return given()
+                .spec(requestSpecification)
                 .body(authRequestModel)
                 .contentType(ContentType.JSON)
                 .when()

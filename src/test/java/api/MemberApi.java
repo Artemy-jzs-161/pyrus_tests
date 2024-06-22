@@ -9,6 +9,7 @@ import models.members.MembersResponseModel;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;
+import static specs.TestSpecifications.requestSpecification;
 
 public class MemberApi {
     @Getter
@@ -21,6 +22,7 @@ public class MemberApi {
 
     public MembersResponseModel getAllMember() {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
@@ -32,6 +34,7 @@ public class MemberApi {
 
     public Member getMember(String memberId) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
@@ -44,6 +47,7 @@ public class MemberApi {
 
     public MembersRequestModel createMember(MembersRequestModel memberRequestModel) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .body(memberRequestModel)
@@ -56,6 +60,7 @@ public class MemberApi {
 
     public MembersRequestModel updateMember(int memberId, MembersRequestModel membersRequestModel) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .body(membersRequestModel)
@@ -68,6 +73,7 @@ public class MemberApi {
 
     public Member deleteMember(int memberId) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
