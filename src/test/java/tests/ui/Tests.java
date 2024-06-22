@@ -1,5 +1,6 @@
 package tests.ui;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.AccountsWebPage;
 import pages.GreetingWebPage;
@@ -7,7 +8,7 @@ import pages.MainWebPage;
 import tests.TestData;
 
 import static io.qameta.allure.Allure.step;
-
+@Tag("ui")
 public class Tests extends TestBase {
     TestData data = new TestData();
     GreetingWebPage greetingPages = new GreetingWebPage();

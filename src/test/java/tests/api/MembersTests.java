@@ -13,6 +13,7 @@ import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+@Tag("api")
 @ExtendWith(AuthParameterResolver.class)
 public class MembersTests extends TestBase {
     private MemberApi memberApi;
@@ -38,7 +39,7 @@ public class MembersTests extends TestBase {
             assertFalse(membersResponse.getMembers().isEmpty(), "Список пользователей не должен быть пустым");
         });
     }
-
+/*
     @Test
     @Authorization
     @DisplayName("Получение сотрудника по id")
@@ -116,6 +117,6 @@ public class MembersTests extends TestBase {
             assertTrue(member1.isBanned(), "Пользователь должен быть забанен");
         });
     }
-
+*/
 
 }

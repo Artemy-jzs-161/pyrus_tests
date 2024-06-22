@@ -63,11 +63,24 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Test) {
-    systemProperties(System.getProperties())
-}
-
 test {
     useJUnitPlatform()
-    systemProperties(System.getProperties())
+}
+
+
+task android(type: Test) {
+    useJUnitPlatform {
+        includeTags("android")
+    }
+}
+task web(type: Test) {
+    useJUnitPlatform {
+        includeTags("ui")
+    }
+}
+
+task api(type: Test) {
+    useJUnitPlatform {
+        includeTags("api")
+    }
 }

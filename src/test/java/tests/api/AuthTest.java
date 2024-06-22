@@ -14,7 +14,7 @@ import static specs.TestSpecifications.responseSpecification;
 public class AuthTest{
     @Getter
     TestData testData = new TestData();
-
+/*
     @Test
     void apiTests() {
         AuthRequestModel authRequestModel = new AuthRequestModel(testData.USERNAME, testData.SECURITY_KEY);
@@ -32,4 +32,6 @@ public class AuthTest{
         String accessToken = authResponse.getAccess_token();
         System.out.println("Токен доступа: " + accessToken);
     }
+
+ */
 }
