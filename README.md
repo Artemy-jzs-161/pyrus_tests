@@ -1,6 +1,5 @@
 # Дипломныый проект автоматизации тестирования Pyrus
 
-
 <html>
  <body> 
    <p><a href="https://pyrus.com/ru"><img src="data/images/Pyrus_logo.png" width="800" 
