@@ -1,13 +1,15 @@
 package api;
 
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import lombok.Getter;
 import models.members.Member;
+import models.members.MembersRequestModel;
 import models.members.MembersResponseModel;
 import specs.TestSpecifications;
-import tests.api.TestBase;
 
 import static io.restassured.RestAssured.given;
+import static specs.TestSpecifications.requestSpecification;
 
 public class MemberApi {
     @Getter
@@ -20,6 +22,7 @@ public class MemberApi {
 
     public MembersResponseModel getAllMember() {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
@@ -31,46 +34,52 @@ public class MemberApi {
 
     public Member getMember(String memberId) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
                 .get("v4/members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
-                .extract().as(Member.class);
+                .extract().response().as(Member.class);
     }
 
 
-    public Member createMember(Member member) {
+    public MembersRequestModel createMember(MembersRequestModel memberRequestModel) {
         return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
-                .body(member)
+                .body(memberRequestModel)
                 .when()
                 .post("v4/members")
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
-                .extract().as(Member.class);
+                .extract().response().as(MembersRequestModel.class);
     }
 
-    public void updateMember(String memberId, MembersResponseModel memberRequest) {
-        given()
+    public MembersRequestModel updateMember(int memberId, MembersRequestModel membersRequestModel) {
+        return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
-                .body(memberRequest)
+                .body(membersRequestModel)
                 .when()
                 .put("v4/members/" + memberId)
                 .then()
-                .spec(TestSpecifications.responseSpecification(200));
+                .spec(TestSpecifications.responseSpecification(200))
+                .extract().response().as(MembersRequestModel.class);
     }
 
-    public void deleteMember(String memberId) {
-        given()
+    public Member deleteMember(int memberId) {
+        return given()
+                .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
                 .delete("v4/members/" + memberId)
                 .then()
-                .spec(TestSpecifications.responseSpecification(200));
-    }
+                .spec(TestSpecifications.responseSpecification(200))
+                .extract().response().as(Member.class);
+         }
 }

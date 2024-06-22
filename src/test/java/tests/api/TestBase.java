@@ -19,6 +19,7 @@ public class TestBase {
 
         RestAssured.baseURI = "https://api.pyrus.com/";
         Configuration.baseUrl = "https://pyrus.com/";
+        RestAssured.basePath = "v4/";
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = webConfig.getRemoteUrl();
     }
