@@ -9,7 +9,6 @@ import static io.restassured.filter.log.LogDetail.*;
 import static helpers.CustomAllureListener.withCustomTemplates;
 
 public class TestSpecifications {
-
     public static RequestSpecification requestSpecification = with()
             .filter(withCustomTemplates())
             .log().uri()

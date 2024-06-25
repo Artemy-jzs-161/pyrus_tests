@@ -1,12 +1,13 @@
 package drivers;
 
+
 import com.codeborne.selenide.WebDriverProvider;
-import config.AndroidEmulatorConfig;
+import config.EmulatorConfig;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 
 import javax.annotation.Nonnull;
 import java.io.File;
@@ -19,11 +20,11 @@ import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class AndroidEmulatorDriver implements WebDriverProvider {
+public class EmulatorDriver implements WebDriverProvider {
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        AndroidEmulatorConfig emulatorConfig = ConfigFactory.create(AndroidEmulatorConfig.class);
+        EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
         UiAutomator2Options options = new UiAutomator2Options();
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
@@ -38,7 +39,7 @@ public class AndroidEmulatorDriver implements WebDriverProvider {
     }
 
     public static URL getAppiumServerUrl() {
-        AndroidEmulatorConfig emulatorConfig = ConfigFactory.create(AndroidEmulatorConfig.class);
+        EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
         try {
             return new URL(emulatorConfig.appiumServer());
         } catch (MalformedURLException e) {
@@ -47,7 +48,7 @@ public class AndroidEmulatorDriver implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        AndroidEmulatorConfig emulatorConfig = ConfigFactory.create(AndroidEmulatorConfig.class);
+        EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
 
         File app = new File(emulatorConfig.appPath());
         if (!app.exists()) {

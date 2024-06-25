@@ -3,10 +3,11 @@ package tests.mobile;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 
-import drivers.BrowserstackDriver;
-import drivers.AndroidEmulatorDriver;
-import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+
+import drivers.BrowserstackDriver;
+import drivers.EmulatorDriver;
+import helpers.Attach;
 
 import org.junit.jupiter.api.*;
 
@@ -19,7 +20,7 @@ public class TestBase {
     static void beforeAll() throws Exception {
         switch (deviceHost) {
             case "browserstack" -> Configuration.browser = BrowserstackDriver.class.getName();
-            case "emulation" -> Configuration.browser = AndroidEmulatorDriver.class.getName();
+            case "emulation" -> Configuration.browser = EmulatorDriver.class.getName();
         }
         Configuration.browserSize = null;
     }
@@ -37,6 +38,7 @@ public class TestBase {
         if (deviceHost.equals("browserstack")) {
             Attach.addVideo(sessionId);
         }
+
         closeWebDriver();
     }
 }

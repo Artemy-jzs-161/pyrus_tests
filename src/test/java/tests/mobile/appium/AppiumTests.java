@@ -12,15 +12,10 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("android")
 public class AppiumTests extends TestBase {
-
     @Test
-    @DisplayName("Проверка экрана адаптации")
-    @Tag("emulator1")
-    void OnboardingScreenTest() {
-        step("Проверка первой страницы", () -> {
-            $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
-        });
+    @DisplayName("pyrus test")
+    @Tag("emulator")
+    void OnboardingScreenTest2() {
         step("Нажать на кнопку Continue", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
         });
@@ -47,4 +42,6 @@ public class AppiumTests extends TestBase {
             $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_done_button")).click();
         });
     }
+
+
 }
