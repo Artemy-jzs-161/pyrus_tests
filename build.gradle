@@ -73,6 +73,13 @@ task android(type: Test) {
         includeTags("android")
     }
 }
+
+task emulator(type: Test) {
+    useJUnitPlatform {
+        includeTags("wiki")
+    }
+}
+
 task web(type: Test) {
     useJUnitPlatform {
         includeTags("ui")

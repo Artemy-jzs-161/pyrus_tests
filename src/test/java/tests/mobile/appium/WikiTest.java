@@ -10,12 +10,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android")
-public class AppiumTests extends TestBase {
+public class WikiTest extends TestBase {
 
     @Test
     @DisplayName("Проверка экрана адаптации")
-    @Tag("emulator1")
+    @Tag("wiki")
     void OnboardingScreenTest() {
         step("Проверка первой страницы", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
