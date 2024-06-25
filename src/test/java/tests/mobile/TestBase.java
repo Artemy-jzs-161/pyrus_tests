@@ -8,8 +8,6 @@ import drivers.AndroidEmulatorDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 
-
-
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -39,7 +37,6 @@ public class TestBase {
         if (deviceHost.equals("browserstack")) {
             Attach.addVideo(sessionId);
         }
-
         closeWebDriver();
     }
 }
