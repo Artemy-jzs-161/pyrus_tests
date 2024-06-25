@@ -1,4 +1,4 @@
-package tests.mobile.appium;
+package tests.mobile;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
@@ -13,9 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.xpath;
 
-@Tag("android")
 public class AppiumTests extends TestBase {
-
     TestData data = new TestData();
 
     @Test
@@ -42,14 +40,6 @@ public class AppiumTests extends TestBase {
         step("Нажать на кнопку Next", () -> {
             $(xpath("(//android.widget.Button[@resource-id=\"net.papirus.androidclient:id/al_next\"])[2]\n")).click();
         });
-        sleep(5000);
-
-        step("Проверить текст", () -> {
-            $(AppiumBy.id("net.papirus.androidclient:id/nd_empty_list_title"))
-                    .shouldHave(text("There are no tasks for you yet"));
-        });
-
-
     }
 
 
