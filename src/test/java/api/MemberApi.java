@@ -1,11 +1,10 @@
 package api;
 
-import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import lombok.Getter;
-import models.members.Member;
-import models.members.MembersRequestModel;
-import models.members.MembersResponseModel;
+import data.models.members.Member;
+import data.models.members.MembersRequestModel;
+import data.models.members.MembersResponseModel;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;

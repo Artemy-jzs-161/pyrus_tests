@@ -1,4 +1,4 @@
-package models.members;
+package data.models.members;
 
 import lombok.Data;
 
