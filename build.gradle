@@ -93,18 +93,6 @@ tasks.withType(Test) {
     }
 }
 
-task emulator(type: Test) {
-    useJUnitPlatform {
-        includeTags("emulator")
-    }
-}
-
-task api(type: Test) {
-    useJUnitPlatform {
-        includeTags("api")
-    }
-}
-
 task ui(type: Test) {
     useJUnitPlatform {
         includeTags("ui")
