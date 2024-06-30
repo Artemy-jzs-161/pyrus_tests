@@ -1,6 +1,5 @@
 package tests.ui;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static data.enums.Language.ru;
