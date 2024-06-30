@@ -10,8 +10,9 @@ public class BlogWebPage {
     private final SelenideElement
 
             inputFieldSearch = $(".field"),
-            noResultMessage = $x("/html/body/div[2]/div/div/section/main/section/div/p[1]"),
-            postElement = $x("/html/body/div[2]/div/div/section/main/section/div/p[1]");
+            noResultMessage = $(".page-content"),
+            postElement = $x("//*[@id=\"main\"]/section/div/p[1]");
+
 
 
 
