@@ -3,13 +3,12 @@ package api;
 import io.qameta.allure.Step;
 
 import io.restassured.http.ContentType;
-import models.authorization.AuthRequestModel;
-import models.authorization.AuthResponseModel;
+import data.models.authorization.AuthRequestModel;
+import data.models.authorization.AuthResponseModel;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;
 import static specs.TestSpecifications.requestSpecification;
-import static specs.TestSpecifications.responseSpecification;
 
 public class AuthorizationApi {
 

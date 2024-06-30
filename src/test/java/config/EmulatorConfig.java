@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({"classpath:${envMobile}.properties"})
-public interface AndroidEmulatorConfig extends Config {
+public interface EmulatorConfig  extends Config {
     @Key("appiumServer")
     String appiumServer();
 

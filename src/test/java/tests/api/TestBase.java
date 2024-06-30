@@ -24,5 +24,8 @@ public class TestBase {
         Configuration.remote = webConfig.getRemoteUrl();
     }
 
-
+    @BeforeEach
+    void selenideListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 }

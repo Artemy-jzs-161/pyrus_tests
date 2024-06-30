@@ -1,11 +1,8 @@
-package models.members;
+package data.models.members;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
-
-
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -22,16 +19,13 @@ public class Member {
     private String position;
     private String skype;
     private String phone;
-
     @JsonProperty("department_id")
     private int departmentId;
 
     @JsonProperty("external_id")
     private String externalId;
-
-
-
 }
+
 
 
 

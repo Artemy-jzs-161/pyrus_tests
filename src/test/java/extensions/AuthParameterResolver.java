@@ -1,8 +1,8 @@
 package extensions;
 
 import api.AuthorizationApi;
-import models.authorization.AuthRequestModel;
-import models.authorization.AuthResponseModel;
+import data.models.authorization.AuthRequestModel;
+import data.models.authorization.AuthResponseModel;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;

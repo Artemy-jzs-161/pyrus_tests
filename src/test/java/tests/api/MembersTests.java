@@ -2,18 +2,21 @@ package tests.api;
 
 import api.MemberApi;
 import extensions.*;
-import models.members.*;
+import data.models.members.*;
 
 import io.qameta.allure.Step;
 
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import specs.TestSpecifications;
 
 import static io.qameta.allure.Allure.step;
+import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
+import static specs.TestSpecifications.requestSpecification;
 
 
-@Tag("api")
 @ExtendWith(AuthParameterResolver.class)
 public class MembersTests extends TestBase {
     private MemberApi memberApi;
@@ -27,7 +30,8 @@ public class MembersTests extends TestBase {
         this.memberApi = new MemberApi(accessToken);
     }
 
-    @Test
+        @Test
+    @Tag("api")
     @Authorization
     @DisplayName("Получение всех сотрудников")
     void getAllMembersTest() {
@@ -39,17 +43,18 @@ public class MembersTests extends TestBase {
             assertFalse(membersResponse.getMembers().isEmpty(), "Список пользователей не должен быть пустым");
         });
     }
-/*
+
     @Test
+    @Tag("api")
     @Authorization
     @DisplayName("Получение сотрудника по id")
     void getIdMembersTest() {
-        Member member = memberApi.getMember("1112147");
+        Member member = memberApi.getMember("1108384");
         System.out.println("Пользователь: " + member);
 
         step("Проверка, что список сотрудников не пустой", () -> {
             assertNotNull(memberApi, "Ответ не должен быть null");
-            assertEquals("Иванов", memberApi.getMember(String.valueOf(1112147)).getLastName());
+            assertEquals("Боровик", memberApi.getMember(String.valueOf(1108384)).getLastName());
         });
     }
 
@@ -117,6 +122,6 @@ public class MembersTests extends TestBase {
             assertTrue(member1.isBanned(), "Пользователь должен быть забанен");
         });
     }
-*/
+
 
 }
