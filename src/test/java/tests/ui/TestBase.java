@@ -29,29 +29,32 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        WebDriverProvider.config();
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.baseUrl = "https://pyrus.com/";
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+        Configuration.browserVersion = System.getProperty("browser_version", "122.0");
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.remote = "https://user1:1234@" +
+                System.getProperty("remote_url", "selenoid.autotests.cloud") + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true));
-
+        capabilities.setCapability("selenoid:options",
+                Map.<String, Object>of(
+                        "enableVNC", true,
+                        "enableVideo", true
+                ));
         Configuration.browserCapabilities = capabilities;
-    }
-
-    @BeforeEach
-    void selenideListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
     void addAttachments() {
-        Attach.screenshotAs("Последний скриншот");
+        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+
         Selenide.closeWebDriver();
 
     }
-
 }
