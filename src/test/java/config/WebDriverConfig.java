@@ -2,7 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:${envWeb}.properties"})
+@Config.Sources({"classpath:${environment}.properties"})
 
 public interface WebDriverConfig extends Config {
     @Key("browser")
@@ -17,10 +17,12 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("1920x1080")
     String getBrowserSize();
 
-    @Key("remoteUrl")
-    String getRemoteUrl();
-
     @Key("baseUrl")
     @DefaultValue("https://pyrus.com/")
     String getBaseUrl();
+
+    @Key("remote_url")
+    String getRemoteUrl();
 }
+
+
