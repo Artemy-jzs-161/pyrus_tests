@@ -81,9 +81,6 @@ allure {
     }
 }
 
-test {
-    useJUnitPlatform()
-}
 
 tasks.withType(Test) {
     useJUnitPlatform()
@@ -96,6 +93,10 @@ tasks.withType(Test) {
     }
 }
 
+test {
+    useJUnitPlatform()
+}
+
 task emulator(type: Test) {
     useJUnitPlatform {
         includeTags("emulator")
@@ -106,10 +107,10 @@ task api(type: Test) {
     useJUnitPlatform {
         includeTags("api")
     }
+}
 
-    task ui(type: Test) {
-        useJUnitPlatform {
-            includeTags("ui")
-        }
+task ui(type: Test) {
+    useJUnitPlatform {
+        includeTags("ui")
     }
 }
