@@ -23,5 +23,4 @@ public interface WebDriverConfig extends Config {
     @Key("baseUrl")
     @DefaultValue("https://pyrus.com/")
     String getBaseUrl();
-
 }
