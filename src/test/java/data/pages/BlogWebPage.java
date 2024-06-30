@@ -11,7 +11,7 @@ public class BlogWebPage {
 
             inputFieldSearch = $(".field"),
             noResultMessage = $(".page-content"),
-            postElement = $x("//*[@id=\"main\"]/section/div/p[1]");
+            postElement = $x("//h2[@class='entry-title']");
 
 
 
