@@ -1,36 +1,52 @@
 package tests.ui;
 
+
 import com.codeborne.selenide.Configuration;
-import config.WebDriverConfig;
-import io.restassured.RestAssured;
-import org.aeonbits.owner.ConfigFactory;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+
+import data.pages.*;
+import drivers.WebDriverProvider;
+import helpers.Attach;
+import io.qameta.allure.selenide.AllureSelenide;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import tests.TestData;
 
 import java.util.Map;
 
+
 public class TestBase {
+    TestData data = new TestData();
+    GreetingWebPage greetingPages = new GreetingWebPage();
+    AccountsWebPage accountsPage = new AccountsWebPage();
+    MainWebPage mainPage = new MainWebPage();
+    PreferencesWebPage preferencesPage = new PreferencesWebPage();
+    BlogWebPage blogWebPage = new BlogWebPage();
+
     @BeforeAll
     static void beforeAll() {
-        WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+        WebDriverProvider.config();
+    }
 
-        RestAssured.baseURI = "https://api.pyrus.com/";
-        Configuration.baseUrl = "https://pyrus.com/";
+    @BeforeEach
+    void selenideListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 
-        Configuration.browser = webDriverConfig.getBrowser();
-        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
-        Configuration.browserSize = webDriverConfig.getBrowserSize();
-        Configuration.remote = webDriverConfig.getRemoteUrl();
 
-        Configuration.timeout = 20000;
-        Configuration.pageLoadTimeout = 100000;
-        Configuration.pageLoadStrategy = "eager";
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Последний скриншот");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        Selenide.closeWebDriver();
 
     }
 }
