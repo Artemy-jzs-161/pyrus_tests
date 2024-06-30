@@ -1,8 +1,8 @@
 package api;
 
+import data.models.members.Member;
 import io.restassured.http.ContentType;
 import lombok.Getter;
-import data.models.members.Member;
 import data.models.members.MembersRequestModel;
 import data.models.members.MembersResponseModel;
 import specs.TestSpecifications;
@@ -25,7 +25,7 @@ public class MemberApi {
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
-                .get("v4/members")
+                .get("members")
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(MembersResponseModel.class);
@@ -37,7 +37,7 @@ public class MemberApi {
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
-                .get("v4/members/" + memberId)
+                .get("members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(Member.class);
@@ -51,7 +51,7 @@ public class MemberApi {
                 .contentType(ContentType.JSON)
                 .body(memberRequestModel)
                 .when()
-                .post("v4/members")
+                .post("members")
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(MembersRequestModel.class);
@@ -64,7 +64,7 @@ public class MemberApi {
                 .contentType(ContentType.JSON)
                 .body(membersRequestModel)
                 .when()
-                .put("v4/members/" + memberId)
+                .put("members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(MembersRequestModel.class);
@@ -76,7 +76,7 @@ public class MemberApi {
                 .header("Authorization", "Bearer " + accessToken)
                 .contentType(ContentType.JSON)
                 .when()
-                .delete("v4/members/" + memberId)
+                .delete("members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(Member.class);

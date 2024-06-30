@@ -6,11 +6,15 @@ import data.models.members.*;
 
 import io.qameta.allure.Step;
 
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import specs.TestSpecifications;
 
 import static io.qameta.allure.Allure.step;
+import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
+import static specs.TestSpecifications.requestSpecification;
 
 
 @ExtendWith(AuthParameterResolver.class)
@@ -26,7 +30,7 @@ public class MembersTests extends TestBase {
         this.memberApi = new MemberApi(accessToken);
     }
 
-    @Test
+        @Test
     @Tag("api")
     @Authorization
     @DisplayName("Получение всех сотрудников")
@@ -40,20 +44,17 @@ public class MembersTests extends TestBase {
         });
     }
 
-
-
-
     @Test
     @Tag("api")
     @Authorization
     @DisplayName("Получение сотрудника по id")
     void getIdMembersTest() {
-        Member member = memberApi.getMember("1120425");
+        Member member = memberApi.getMember("1108384");
         System.out.println("Пользователь: " + member);
 
         step("Проверка, что список сотрудников не пустой", () -> {
             assertNotNull(memberApi, "Ответ не должен быть null");
-            assertEquals("Иванов", memberApi.getMember(String.valueOf(1120425)).getLastName());
+            assertEquals("Боровик", memberApi.getMember(String.valueOf(1108384)).getLastName());
         });
     }
 
