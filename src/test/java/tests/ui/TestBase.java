@@ -4,14 +4,13 @@ package tests.ui;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.WebDriverProvider;
+
 import data.pages.*;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import tests.TestData;
@@ -34,7 +33,11 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
         Configuration.browserVersion = System.getProperty("browser_version", "122.0");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://user1:1234@" +
+
+        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 100000;
+
+                Configuration.remote = "https://user1:1234@" +
                 System.getProperty("remote_url", "selenoid.autotests.cloud") + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
