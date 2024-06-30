@@ -21,8 +21,8 @@ public class BlogTest extends TestBase {
     void checkAnSuccessSearchInBlogTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку Кейсы", () -> greetingPages.pressBlogPage());
-        step("Ввести информацию", () -> blogWebPage.searchInfo(data.BLOG));
-        step("Проверить, что в блоге ничего не найдено", () -> blogWebPage.checkNulLResultMessage(data.NULL_BLOG));
+        step("Ввести информацию", () -> blogWebPage.searchInfo(data.NULL_BLOG));
+        step("Проверить, что в блоге ничего не найдено", () -> blogWebPage.checkNulLResultMessage("Ничего не найдено"));
     }
 
 

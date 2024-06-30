@@ -11,7 +11,8 @@ public class BlogWebPage {
 
             inputFieldSearch = $(".field"),
             noResultMessage = $x("/html/body/div[2]/div/div/section/main/section/div/p[1]"),
-            postElement = $x("/html/body/div[2]/div/div/section/main/div[2]/article[1]/a/header/h2");
+            postElement = $x("/html/body/div[2]/div/div/section/main/section/div/p[1]");
+
 
 
     public BlogWebPage searchInfo(String info) {
