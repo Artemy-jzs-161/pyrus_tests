@@ -6,12 +6,11 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BlogWebPage {
-
     private final SelenideElement
 
             inputFieldSearch = $(".field"),
-            noResultMessage = $x("/html/body/div[2]/div/div/section/main/section/div/p[1]"),
-            postElement = $x("/html/body/div[2]/div/div/section/main/div[2]/article[1]/a/header/h2");
+            noResultMessage = $(".page-content"),
+            postElement = $x("//h2[@class='entry-title']");
 
 
     public BlogWebPage searchInfo(String info) {
