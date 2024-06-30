@@ -40,6 +40,19 @@ public class AppiumTests extends TestBase {
         step("Нажать на кнопку Next", () -> {
             $(xpath("(//android.widget.Button[@resource-id=\"net.papirus.androidclient:id/al_next\"])[2]\n")).click();
         });
+
+        step("Нажать на кнопку Next", () -> {
+            $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_lists_image")).click();
+        });
+
+        step(".....", () -> {
+            $(AppiumBy.id(" net.papirus.androidclient:id/title")).click();
+        });
+
+
+
+
+
     }
 
 

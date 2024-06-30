@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static data.enums.Language.ru;
 import static io.qameta.allure.Allure.step;
 
-@Tag("ui")
 public class TaskTest extends TestBase {
     @Test
     void checkCreateTaskTest() {

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static data.enums.Language.ru;
 import static io.qameta.allure.Allure.step;
 
-@Tag("ui")
+
 public class LoginTests extends TestBase {
 
     @Test
@@ -22,8 +22,8 @@ public class LoginTests extends TestBase {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку Войти", () -> greetingPages.pressLoginButton());
         step("Ввести логин", () -> accountsPage.enterLogin(data.USERNAME));
-        step("Ввести пароль", () -> accountsPage.enterPassword(data.INCORRECT_INPASSWORD));
-        step("Проверить имя компании на главной страницу", () -> accountsPage.checkingIncorrectPassword(data.INCORRECT_INPASSWORD));
+        step("Ввести пароль", () -> accountsPage.enterPassword(data.INCORRECTPASSWORD));
+        step("Проверить имя компании на главной страницу", () -> accountsPage.checkingIncorrectPassword(data.INCORRECTPASSWORD));
     }
 
     @Test

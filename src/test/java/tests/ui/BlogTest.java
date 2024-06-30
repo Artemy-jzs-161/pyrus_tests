@@ -1,10 +1,12 @@
 package tests.ui;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static data.enums.Language.ru;
 import static io.qameta.allure.Allure.step;
 
+@Tag("ui")
 public class BlogTest extends TestBase {
 
     @Test

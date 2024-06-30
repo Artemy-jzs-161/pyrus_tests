@@ -2,11 +2,9 @@ package tests.mobile;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-
 import io.qameta.allure.selenide.AllureSelenide;
 
-import drivers.BrowserstackDriver;
-import drivers.EmulatorDriver;
+import drivers.*;
 import helpers.Attach;
 
 import org.junit.jupiter.api.*;
@@ -17,7 +15,7 @@ public class TestBase {
     public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll
-    static void beforeAll() throws Exception {
+    static void beforeAll() {
         switch (deviceHost) {
             case "browserstack" -> Configuration.browser = BrowserstackDriver.class.getName();
             case "emulation" -> Configuration.browser = EmulatorDriver.class.getName();
@@ -35,10 +33,9 @@ public class TestBase {
     void addAttachments() {
         String sessionId = sessionId().toString();
         Attach.pageSource();
-        if (deviceHost.equals("browserstack")) {
+        if ("browserstack".equals(deviceHost)) {
             Attach.addVideo(sessionId);
         }
-
         closeWebDriver();
     }
 }

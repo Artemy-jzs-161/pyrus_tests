@@ -24,5 +24,21 @@ public class TestBase {
         Configuration.remote = webConfig.getRemoteUrl();
     }
 
+    @BeforeEach
+    void selenideListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Последний скриншот");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+
+        Selenide.closeWebDriver();
+
+    }
+
 
 }
