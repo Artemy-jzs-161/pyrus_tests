@@ -10,7 +10,9 @@ public class AccountsWebPage {
     private final SelenideElement
             loginInputFieldElement = $("#p_email"),
             inputToolTipText = $(".input__tooltipText"),
+            titleCreateCompanyElement = $x("//h1"),
             passwordInputFieldElement = $("input[data-test-id='inputPassword']");
+
 
     public AccountsWebPage enterLogin(String username) {
         loginInputFieldElement.setValue(username).pressEnter();
@@ -26,4 +28,13 @@ public class AccountsWebPage {
         inputToolTipText.shouldHave(text(value));
         return this;
     }
+
+    public AccountsWebPage checkingIncorrectLogin(String value) {
+        titleCreateCompanyElement.shouldHave(text(value));
+        return this;
+    }
+
+
+
+
 }

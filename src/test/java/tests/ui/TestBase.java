@@ -11,7 +11,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import tests.TestData;
 
-
 public class TestBase {
     TestData data = new TestData();
     GreetingWebPage greetingPages = new GreetingWebPage();
@@ -30,14 +29,12 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
-
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Последний скриншот");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-
         Selenide.closeWebDriver();
 
     }

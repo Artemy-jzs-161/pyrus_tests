@@ -107,6 +107,6 @@ task api(type: Test) {
 
 task ui(type: Test) {
     useJUnitPlatform {
-        includeTags("ui")
+        includeTags("UI")
     }
 }
