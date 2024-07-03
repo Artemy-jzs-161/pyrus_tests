@@ -1,14 +1,11 @@
 package data.models.members;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.*;
+import lombok.*;
 
 @Data
-@NoArgsConstructor // Конструктор по умолчанию
-@AllArgsConstructor // Конструктор со всеми полями
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MembersRequestModel {
     private int id;
@@ -23,7 +20,6 @@ public class MembersRequestModel {
     private String skype;
     private String phone;
     private String status;
-
 
     public MembersRequestModel(String firstName, String lastName, String email, String position, int department, String skype, String phone, String status) {
         this.firstName = firstName;

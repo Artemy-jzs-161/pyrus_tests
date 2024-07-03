@@ -1,10 +1,8 @@
 package api;
 
-import data.models.members.Member;
 import io.restassured.http.ContentType;
 import lombok.Getter;
-import data.models.members.MembersRequestModel;
-import data.models.members.MembersResponseModel;
+import data.models.members.*;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;
@@ -17,7 +15,6 @@ public class MemberApi {
     public MemberApi(String accessToken) {
         this.accessToken = accessToken;
     }
-
 
     public MembersResponseModel getAllMember() {
         return given()
@@ -42,7 +39,6 @@ public class MemberApi {
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(Member.class);
     }
-
 
     public MembersRequestModel createMember(MembersRequestModel memberRequestModel) {
         return given()
@@ -80,5 +76,5 @@ public class MemberApi {
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
                 .extract().response().as(Member.class);
-         }
+    }
 }
