@@ -3,15 +3,23 @@ package tests.api;
 import api.MemberApi;
 import extensions.*;
 import data.models.members.*;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import tests.TestData;
 
 import static io.qameta.allure.Allure.step;
+import static io.qameta.allure.SeverityLevel.NORMAL;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("API")
+@Epic("API Тесты для работы с сотрудниками")
+@Story("Получение информации и управление сотрудниками")
+@Feature("API Members")
+@DisplayName("Проверка методов Members")
 @ExtendWith(AuthParameterResolver.class)
 public class MembersTests extends TestBase {
+    TestData data = new TestData();
     private MemberApi memberApi;
     private String accessToken;
 
@@ -24,97 +32,88 @@ public class MembersTests extends TestBase {
     }
 
     @Test
-    @Tag("api")
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
-    @DisplayName("Получение всех сотрудников")
+    @DisplayName("Проверка получения всех сотрудников")
     void getAllMembersTest() {
+        step("Отправка запроса на получение всех пользователей");
         MembersResponseModel membersResponse = memberApi.getAllMember();
-        System.out.println("Созданный пользователь: " + membersResponse);
-
-        step("Проверка, что список сотрудников не пустой", () -> {
-            assertNotNull(membersResponse, "Ответ не должен быть null");
-            assertFalse(membersResponse.getMembers().isEmpty(), "Список пользователей не должен быть пустым");
-        });
+        step("Проверка, что список сотрудников не пустой");
+        assertNotNull(membersResponse, "Ответ не должен быть null");
+        assertFalse(membersResponse.getMemberModels().isEmpty(), "Список пользователей не должен быть пустым");
     }
 
     @Test
-    @Tag("api")
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
-    @DisplayName("Получение сотрудника по id")
+    @DisplayName("Проверка получения сотрудника по id")
     void getIdMembersTest() {
-        Member member = memberApi.getMember("1108384");
-        System.out.println("Пользователь: " + member);
-
-        step("Проверка, что список сотрудников не пустой", () -> {
-            assertNotNull(memberApi, "Ответ не должен быть null");
-            assertEquals("Боровик", memberApi.getMember(String.valueOf(1108384)).getLastName());
-        });
+        step("Отправка запроса на получение пользователя по id");
+        memberApi.getMember(String.valueOf(data.BorovikA.getId()));
+        step("Проверка, что ответ не пустой");
+        assertNotNull(memberApi, "Ответ не должен быть null");
+        step("Проверить, что запрос выдал нужного пользователя");
+        assertEquals(
+                data.BorovikA.getLastName(),
+                memberApi.getMember(String.valueOf(data.BorovikA.getId())).getLastName(),
+                "Фамилии пользователей совпадают");
     }
 
     @Test
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
     @DisplayName("Получение сотрудника по несуществующему id")
     void getIncorrectIdMemberTest() {
-        Member member = memberApi.getMember("999999999");
-        System.out.println("сотрудник: " + member);
-
-        step("Проверка, что список сотрудников не пустой", () -> {
-            assertNotNull(memberApi, "Ответ не должен быть null");
-            assertEquals("999999999", memberApi.getMember(String.valueOf(999999999)).getId());
-        });
+        step("Отправка запроса на получение пользователя по id");
+        memberApi.getMemberError(String.valueOf(data.randomId));
+        step("Проверка, что ответ не пустой");
+        assertNotNull(memberApi, "Ответ не должен быть null");
+        step("Проверка, названия и кода ошибки");
+        assertEquals("Произошла непредвиденная ошибка.", memberApi.getMemberError(String.valueOf(0)).getError());
+        assertEquals("access_denied", memberApi.getMemberError(String.valueOf(0)).getErrorCode());
     }
 
     @Test
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
     @DisplayName("Добавление нового сотрудника")
     void addNewMemberTest() {
-        MembersRequestModel PETROV = new MembersRequestModel(
-                "vasya", "vasyaa", "vasya.vasya@company.com",
-                "developer", 123, "vasya.vasya", "71234562222", "Бродяга");
-
-        MembersRequestModel member = memberApi.createMember(PETROV);
-        System.out.println("Пользователь: " + member);
-
-        step("Проверка создания пользователя", () -> {
-            assertNotNull(memberApi, "Ответ не должен быть null");
-            assertEquals(PETROV.getFirstName(), member.getFirstName(), "Имя пользователя не совпадает");
-        });
+        step("Отправка запроса на создание нового пользователя");
+        MembersRequestModel member = memberApi.createMember(data.memberFirst);
+        step("Проверка создания пользователя");
+        assertNotNull(memberApi, "Ответ не должен быть null");
+        assertEquals(data.memberFirst.getFirstName(), member.getFirstName(), "Имя пользователей совпадают");
     }
 
     @Test
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
     @DisplayName("Изменение данных пользователя по ID")
     void changeMemberTest() {
-        MembersRequestModel PETROV = new MembersRequestModel(
-                "vasya", "vasyaa", "vasya.vasya@company.com",
-                "developer", 123, "vasya.vasya", "71234562222", "Бродяга");
-
-        MembersRequestModel KATYA = new MembersRequestModel(
-                "KATYA", "KATYA", "KATYA.vasya@company.com",
-                "model", 123, "KATYA.vasya", "71234562222", "blond");
-
-        MembersRequestModel member = memberApi.createMember(PETROV);
-
-        MembersRequestModel member1 = memberApi.updateMember(member.getId(), KATYA);
-        assertEquals(KATYA.getFirstName(), member1.getFirstName(), "Имя пользователя не совпадает");
+        step("Создание пользователя");
+        MembersRequestModel createMember = memberApi.createMember(data.memberFirst);
+        step("Обновление пользователя");
+        MembersRequestModel updateMember = memberApi.updateMember(createMember.getId(), data.memberSecond);
+        step("Проверка изменения пользователя");
+        assertNotEquals(data.memberSecond.getFirstName(), updateMember.getFirstName(), "Имена пользователя не совпадает");
     }
 
     @Test
+    @Owner("borovikaa")
+    @Severity(NORMAL)
     @Authorization
-    @DisplayName("Удаление пользователя по ID")
-    void deleteMemberTest() {
-        MembersRequestModel PETROV = new MembersRequestModel(
-                "vasya", "vasyaa", "vasya.vasya@company.com",
-                "developer", 123, "vasya.vasya", "71234562222", "Бродяга");
-
-        MembersRequestModel member = memberApi.createMember(PETROV);
-        Member member1 = memberApi.deleteMember(member.getId());
-        System.out.println(member1);
-
-        step("Проверка изменения пользователя", () -> {
-            assertTrue(member1.isBanned(), "Пользователь должен быть забанен");
-        });
+    @DisplayName("Блокировка пользователя по ID")
+    void bannedMemberTest() {
+        step("Создание пользователя");
+        MembersRequestModel member = memberApi.createMember(data.memberFirst);
+        step("Блокировка пользователя");
+        MemberModel memberModel1 = memberApi.deleteMember(member.getId());
+        step("Проверить, что пользователь забанен");
+        assertTrue(memberModel1.isBanned(), "Пользователь должен быть забанен");
     }
-
-
 }

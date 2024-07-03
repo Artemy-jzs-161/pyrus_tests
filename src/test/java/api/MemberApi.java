@@ -28,7 +28,7 @@ public class MemberApi {
                 .extract().response().as(MembersResponseModel.class);
     }
 
-    public Member getMember(String memberId) {
+    public MemberModel getMember(String memberId) {
         return given()
                 .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
@@ -37,7 +37,19 @@ public class MemberApi {
                 .get("members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
-                .extract().response().as(Member.class);
+                .extract().response().as(MemberModel.class);
+    }
+
+    public ErrorMemberResponseModel getMemberError(String memberId) {
+        return given()
+                .spec(requestSpecification)
+                .header("Authorization", "Bearer " + accessToken)
+                .contentType(ContentType.JSON)
+                .when()
+                .get("members/" + memberId)
+                .then()
+                .spec(TestSpecifications.responseSpecification(403))
+                .extract().response().as(ErrorMemberResponseModel.class);
     }
 
     public MembersRequestModel createMember(MembersRequestModel memberRequestModel) {
@@ -66,7 +78,7 @@ public class MemberApi {
                 .extract().response().as(MembersRequestModel.class);
     }
 
-    public Member deleteMember(int memberId) {
+    public MemberModel deleteMember(int memberId) {
         return given()
                 .spec(requestSpecification)
                 .header("Authorization", "Bearer " + accessToken)
@@ -75,6 +87,6 @@ public class MemberApi {
                 .delete("members/" + memberId)
                 .then()
                 .spec(TestSpecifications.responseSpecification(200))
-                .extract().response().as(Member.class);
+                .extract().response().as(MemberModel.class);
     }
 }

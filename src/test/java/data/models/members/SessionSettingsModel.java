@@ -5,6 +5,6 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class SessionSettings {
+public class SessionSettingsModel {
     private boolean disable;
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Member {
+public class MemberModel {
     private int id;
     @JsonProperty("first_name")
     private String firstName;

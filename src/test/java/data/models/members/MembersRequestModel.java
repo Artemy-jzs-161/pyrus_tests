@@ -31,4 +31,10 @@ public class MembersRequestModel {
         this.phone = phone;
         this.status = status;
     }
+
+    public MembersRequestModel(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

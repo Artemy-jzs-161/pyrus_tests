@@ -21,6 +21,7 @@ def selenideVersion = "7.3.1",
     ownerVersion = "1.0.12",
     webdrivermanagerVersion = "5.2.1",
     aspectjweaverVersion = "1.9.22",
+    javaFakerVersion = "1.0.2",
     appiumVersion = '8.3.0';
 
 dependencies
@@ -41,6 +42,7 @@ dependencies
             testImplementation "io.github.bonigarcia:webdrivermanager:5.8.0"
             testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
             testImplementation "io.appium:java-client:$appiumVersion"
+            testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
 
 
         }
@@ -101,7 +103,7 @@ task emulator(type: Test) {
 
 task api(type: Test) {
     useJUnitPlatform {
-        includeTags("api")
+        includeTags("API")
     }
 }
 
