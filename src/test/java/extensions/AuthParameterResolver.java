@@ -1,12 +1,8 @@
 package extensions;
 
 import api.AuthorizationApi;
-import data.models.authorization.AuthRequestModel;
-import data.models.authorization.AuthResponseModel;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.ParameterContext;
-import org.junit.jupiter.api.extension.ParameterResolutionException;
-import org.junit.jupiter.api.extension.ParameterResolver;
+import data.models.authorization.*;
+import org.junit.jupiter.api.extension.*;
 import tests.TestData;
 
 public class AuthParameterResolver implements ParameterResolver {
@@ -16,6 +12,7 @@ public class AuthParameterResolver implements ParameterResolver {
     @Override
     public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
             throws ParameterResolutionException {
+
         return parameterContext.getParameter().getType()
                 == String.class
                 && parameterContext.getParameter().isAnnotationPresent(AuthToken.class);

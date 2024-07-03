@@ -1,8 +1,7 @@
 package specs;
 
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
+import io.restassured.specification.*;
 
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.*;
@@ -22,5 +21,4 @@ public class TestSpecifications {
                 .log(BODY)
                 .build();
     }
-
 }
