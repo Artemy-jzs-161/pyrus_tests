@@ -114,6 +114,6 @@ public class MembersTests extends TestBase {
         step("Блокировка пользователя");
         MemberModel memberModel1 = memberApi.deleteMember(member.getId());
         step("Проверить, что пользователь забанен");
-        assertTrue(memberModel1.isBanned(), "Пользователь должен быть забанен");
+        assertTrue(memberModel1.isBanned(), "Пользователь в статусе забанен");
     }
 }
