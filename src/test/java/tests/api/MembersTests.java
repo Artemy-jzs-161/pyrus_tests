@@ -3,10 +3,11 @@ package tests.api;
 import api.MemberApi;
 import extensions.*;
 import data.models.members.*;
+import tests.TestData;
+
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import tests.TestData;
 
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.NORMAL;
