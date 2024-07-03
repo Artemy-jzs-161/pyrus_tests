@@ -22,7 +22,8 @@ public class LoginTests extends TestBase {
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
         step("Ввести логин", () -> accountsPage.enterLogin(data.email));
         step("Ввести пароль", () -> accountsPage.enterPassword(data.password));
-        step("Проверить имя компании на главной страницу", () -> mainPage.checkCompanyName(data.nameCompany));
+        step("Проверить имя компании на главной страницу", () ->
+                mainPage.checkCompanyName(data.nameCompany));
     }
 
     @Test
@@ -34,7 +35,8 @@ public class LoginTests extends TestBase {
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
         step("Ввести логин", () -> accountsPage.enterLogin(data.email));
         step("Ввести пароль", () -> accountsPage.enterPassword(data.incorrectPassword));
-        step("Проверить, что высветилось оповещение о неправильном пароле", () -> accountsPage.checkingIncorrectPassword(data.incorrectPasswordMessage));
+        step("Проверить, что высветилось оповещение о неправильном пароле", () ->
+                accountsPage.checkingIncorrectPassword(data.incorrectPasswordMessage));
     }
 
     @Test
@@ -45,6 +47,7 @@ public class LoginTests extends TestBase {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
         step("Ввести логин", () -> accountsPage.enterLogin(data.incorrectEmail));
-        step("Проверить, что появилось окно создания новой компании", () -> accountsPage.checkingIncorrectLogin(data.titleCreateCompany));
+        step("Проверить, что появилось окно создания новой компании", () ->
+                accountsPage.checkingIncorrectLogin(data.titleCreateCompany));
     }
 }

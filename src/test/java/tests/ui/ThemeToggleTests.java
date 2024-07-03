@@ -25,6 +25,7 @@ public class ThemeToggleTests extends TestBase {
         step("Нажать кнопку \"Настройки\"", () -> mainPage.clickSettingButton());
         step("Нажать кнопку \"Предпочтения\"", () -> mainPage.clickPreferencesButton());
         step("Кликнуть на чекбокс \"Темная\"", () -> preferencesPage.selectBlackTheme());
-        step("Проверить, что тема изменилась на темную", () -> preferencesPage.checkBackgroundColor(data.backgroundColorBlackTheme));
+        step("Проверить, что тема изменилась на темную", () ->
+                preferencesPage.checkBackgroundColor(data.backgroundColorBlackTheme));
     }
 }
