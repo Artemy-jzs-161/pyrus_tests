@@ -3,19 +3,12 @@ package tests.api;
 import api.MemberApi;
 import extensions.*;
 import data.models.members.*;
-
 import io.qameta.allure.Step;
-
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import specs.TestSpecifications;
 
 import static io.qameta.allure.Allure.step;
-import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
-import static specs.TestSpecifications.requestSpecification;
-
 
 @ExtendWith(AuthParameterResolver.class)
 public class MembersTests extends TestBase {
@@ -30,7 +23,7 @@ public class MembersTests extends TestBase {
         this.memberApi = new MemberApi(accessToken);
     }
 
-        @Test
+    @Test
     @Tag("api")
     @Authorization
     @DisplayName("Получение всех сотрудников")

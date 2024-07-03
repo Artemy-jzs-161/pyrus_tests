@@ -7,11 +7,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BlogWebPage {
     private final SelenideElement
-
             inputFieldSearch = $(".field"),
             noResultMessage = $(".page-content"),
             postElement = $x("//h2[@class='entry-title']");
-
 
     public BlogWebPage searchInfo(String info) {
         inputFieldSearch.setValue(info).pressEnter();

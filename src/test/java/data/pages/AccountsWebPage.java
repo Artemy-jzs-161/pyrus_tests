@@ -5,14 +5,12 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-
 public class AccountsWebPage {
     private final SelenideElement
             loginInputFieldElement = $("#p_email"),
             inputToolTipText = $(".input__tooltipText"),
             titleCreateCompanyElement = $x("//h1"),
             passwordInputFieldElement = $("input[data-test-id='inputPassword']");
-
 
     public AccountsWebPage enterLogin(String username) {
         loginInputFieldElement.setValue(username).pressEnter();
@@ -33,8 +31,4 @@ public class AccountsWebPage {
         titleCreateCompanyElement.shouldHave(text(value));
         return this;
     }
-
-
-
-
 }

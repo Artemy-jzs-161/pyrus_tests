@@ -3,8 +3,7 @@ package data.pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainWebPage {
     private final SelenideElement
@@ -16,7 +15,6 @@ public class MainWebPage {
             settingButton = $("button[aria-label='Настройки'] svg[aria-hidden='true']"),
             linkPreferencesPage = $x("/html/body/div[5]/div[2]/div/div/ul[1]/li[2]/a"),
             checkNameTask = $("div[class='virtualList__itemsScroller']");
-
 
     public MainWebPage checkCompanyName(String companyName) {
         avatarMenuOrgInfoElement.shouldHave(text(companyName));
@@ -53,13 +51,8 @@ public class MainWebPage {
         return this;
     }
 
-
     public MainWebPage checkTaskName(String taskName) {
         checkNameTask.shouldHave(text(taskName));
         return this;
     }
-
-
-
-
 }
