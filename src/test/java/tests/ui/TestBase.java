@@ -4,12 +4,13 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 
 import data.pages.*;
-import drivers.WebDriverProvider;
 import helpers.Attach;
+import tests.TestData;
+
+import drivers.WebDriverProvider;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import org.junit.jupiter.api.*;
-import tests.TestData;
 
 public class TestBase {
     TestData data = new TestData();

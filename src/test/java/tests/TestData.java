@@ -13,6 +13,9 @@ public class TestData {
     public String NULL_BLOG = "111111";
     public String RESULT_SEARCH = "Ничего не найдено";
 
+    public String TASK_NAME = "Задача номер 1";
+    public String Task_Description = "Описание задачи 1";
+
     public String backgroundColorBlackTheme = "#1c1e21";
 
 }

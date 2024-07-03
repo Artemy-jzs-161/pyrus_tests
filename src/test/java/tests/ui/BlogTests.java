@@ -19,7 +19,7 @@ public class BlogTests extends TestBase {
     @DisplayName("Проверить поиск по названию статьи")
     void checkSuccessSearchInBlogTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
-        step("Нажать кнопку Кейсы", () -> greetingPages.pressBlogPage());
+        step("Нажать кнопку \"Кейсы\"", () -> greetingPages.pressBlogPage());
         step("Ввести информацию", () -> blogWebPage.searchInfo(data.BLOG));
         step("Проверить работу поиска", () -> blogWebPage.checkSearchInfo(data.BLOG));
     }
@@ -30,7 +30,7 @@ public class BlogTests extends TestBase {
     @DisplayName("Проверить, что при поиске несуществующей статьи, результат \"Ничего не найдено\"")
     void checkSearchDoesNotExistBlogTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
-        step("Нажать кнопку Кейсы", () -> greetingPages.pressBlogPage());
+        step("Нажать кнопку \"Кейсы\"", () -> greetingPages.pressBlogPage());
         step("Ввести информацию", () -> blogWebPage.searchInfo(data.NULL_BLOG));
         step("Проверить, что в блоге ничего не найдено", () ->
                 blogWebPage.checkNulLResultMessage(data.RESULT_SEARCH));
