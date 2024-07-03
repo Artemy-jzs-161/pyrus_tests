@@ -27,7 +27,7 @@ public class AuthParameterResolver implements ParameterResolver {
         ExtensionContext.Store store = extensionContext.getStore(ExtensionContext.Namespace.GLOBAL);
 
         return store.getOrComputeIfAbsent(AUTH_TOKEN, key -> {
-            AuthRequestModel authRequestModel = new AuthRequestModel(testData.USERNAME, testData.SECURITY_KEY);
+            AuthRequestModel authRequestModel = new AuthRequestModel(testData.email, testData.securityKey);
             AuthorizationApi authorizationApi = new AuthorizationApi();
             AuthResponseModel authResponseModel = authorizationApi.authorize(authRequestModel);
             return authResponseModel.getAccess_token();

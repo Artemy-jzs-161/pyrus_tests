@@ -20,9 +20,9 @@ public class LoginTests extends TestBase {
     void successfulCheckLoginTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
-        step("Ввести логин", () -> accountsPage.enterLogin(data.USERNAME));
-        step("Ввести пароль", () -> accountsPage.enterPassword(data.PASSWORD));
-        step("Проверить имя компании на главной страницу", () -> mainPage.checkCompanyName(data.NAME_COMPANY));
+        step("Ввести логин", () -> accountsPage.enterLogin(data.email));
+        step("Ввести пароль", () -> accountsPage.enterPassword(data.password));
+        step("Проверить имя компании на главной страницу", () -> mainPage.checkCompanyName(data.nameCompany));
     }
 
     @Test
@@ -32,9 +32,9 @@ public class LoginTests extends TestBase {
     void checkIncorrectPasswordTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
-        step("Ввести логин", () -> accountsPage.enterLogin(data.USERNAME));
-        step("Ввести пароль", () -> accountsPage.enterPassword(data.INCORRECTPASSWORD));
-        step("Проверить, что высветилось оповещение о неправильном пароле", () -> accountsPage.checkingIncorrectPassword(data.MESSAGEINCORRECTPASSWORD));
+        step("Ввести логин", () -> accountsPage.enterLogin(data.email));
+        step("Ввести пароль", () -> accountsPage.enterPassword(data.incorrectPassword));
+        step("Проверить, что высветилось оповещение о неправильном пароле", () -> accountsPage.checkingIncorrectPassword(data.incorrectPasswordMessage));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LoginTests extends TestBase {
     void checkIncorrectLoginTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
-        step("Ввести логин", () -> accountsPage.enterLogin(data.INCORRECTUSERNAME));
+        step("Ввести логин", () -> accountsPage.enterLogin(data.incorrectEmail));
         step("Проверить, что появилось окно создания новой компании", () -> accountsPage.checkingIncorrectLogin(data.titleCreateCompany));
     }
 }

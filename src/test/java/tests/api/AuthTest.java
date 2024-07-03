@@ -17,7 +17,7 @@ public class AuthTest{
 
     @Test
     void apiTests() {
-        AuthRequestModel authRequestModel = new AuthRequestModel(testData.USERNAME, testData.SECURITY_KEY);
+        AuthRequestModel authRequestModel = new AuthRequestModel(testData.email, testData.securityKey);
         System.out.println("Авторизация пользователя: " + authRequestModel);
 
         AuthResponseModel authResponse = given()

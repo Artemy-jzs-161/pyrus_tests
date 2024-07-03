@@ -20,8 +20,8 @@ public class BlogTests extends TestBase {
     void checkSuccessSearchInBlogTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Кейсы\"", () -> greetingPages.pressBlogPage());
-        step("Ввести информацию", () -> blogWebPage.searchInfo(data.BLOG));
-        step("Проверить работу поиска", () -> blogWebPage.checkSearchInfo(data.BLOG));
+        step("Ввести информацию", () -> blogWebPage.searchInfo(data.nameArticle));
+        step("Проверить работу поиска", () -> blogWebPage.checkSearchInfo(data.nameArticle));
     }
 
     @Test
@@ -31,8 +31,8 @@ public class BlogTests extends TestBase {
     void checkSearchDoesNotExistBlogTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Кейсы\"", () -> greetingPages.pressBlogPage());
-        step("Ввести информацию", () -> blogWebPage.searchInfo(data.NULL_BLOG));
+        step("Ввести информацию", () -> blogWebPage.searchInfo(data.noExistArticle));
         step("Проверить, что в блоге ничего не найдено", () ->
-                blogWebPage.checkNulLResultMessage(data.RESULT_SEARCH));
+                blogWebPage.checkNulLResultMessage(data.elementSearchResultMissing));
     }
 }

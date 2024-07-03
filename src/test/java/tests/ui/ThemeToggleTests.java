@@ -20,8 +20,8 @@ public class ThemeToggleTests extends TestBase {
     void checkBlackThemeInstallationTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
-        step("Ввести логин", () -> accountsPage.enterLogin(data.USERNAME));
-        step("Ввести пароль", () -> accountsPage.enterPassword(data.PASSWORD));
+        step("Ввести логин", () -> accountsPage.enterLogin(data.email));
+        step("Ввести пароль", () -> accountsPage.enterPassword(data.password));
         step("Нажать кнопку \"Настройки\"", () -> mainPage.clickSettingButton());
         step("Нажать кнопку \"Предпочтения\"", () -> mainPage.clickPreferencesButton());
         step("Кликнуть на чекбокс \"Темная\"", () -> preferencesPage.selectBlackTheme());

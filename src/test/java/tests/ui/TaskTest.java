@@ -20,12 +20,12 @@ public class TaskTest extends TestBase {
     void checkCreateTaskTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
-        step("Ввести логин", () -> accountsPage.enterLogin(data.USERNAME));
-        step("Ввести пароль", () -> accountsPage.enterPassword(data.PASSWORD));
+        step("Ввести логин", () -> accountsPage.enterLogin(data.email));
+        step("Ввести пароль", () -> accountsPage.enterPassword(data.password));
         step("Нажать на кнопку \"Новая задача\"", () -> mainPage.pressNewTask());
-        step("Ввести заголовок", () -> mainPage.setTaskName(data.TASK_NAME));
-        step("Ввести описание задачи", () -> mainPage.setTaskDescription(data.Task_Description));
+        step("Ввести заголовок", () -> mainPage.setTaskName(data.taskName));
+        step("Ввести описание задачи", () -> mainPage.setTaskDescription(data.taskDescription));
         step("Нажать кнопку \"Отправить\"", () -> mainPage.creatTask());
-        step("Проверить заголовок задачи", () -> mainPage.checkTaskName(data.TASK_NAME));
+        step("Проверить заголовок задачи", () -> mainPage.checkTaskName(data.taskName));
     }
 }
