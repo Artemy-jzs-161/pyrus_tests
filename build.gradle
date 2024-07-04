@@ -95,9 +95,9 @@ tasks.withType(Test) {
     }
 }
 
-task emulator(type: Test) {
+task mobile(type: Test) {
     useJUnitPlatform {
-        includeTags("emulator")
+        includeTags("Mobile")
     }
 }
 

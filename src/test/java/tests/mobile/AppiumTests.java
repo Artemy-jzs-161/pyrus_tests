@@ -15,7 +15,7 @@ public class AppiumTests extends TestBase {
 
     @Test
     @DisplayName("pyrus test")
-    @Tag("emulator")
+    @Tag("Mobile")
     void OnboardingScreenTest2() {
         step("Нажать на кнопку Log in", () -> {
             $(AppiumBy.id("net.papirus.androidclient:id/login_tv")).click();
