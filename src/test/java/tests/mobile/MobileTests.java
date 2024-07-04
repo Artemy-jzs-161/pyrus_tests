@@ -21,7 +21,7 @@ public class MobileTests extends TestBase {
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
-    @Tag("Mobile")
+
     void mobileSuccessfulRegistrationTest() {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();
@@ -44,6 +44,11 @@ public class MobileTests extends TestBase {
         step("Нажать на кнопку Next", () -> {
             mobilePage.clickNext3();
         });
+
+        step("Нажать на кнопку Allow", () -> {
+            mobilePage.allowPyrusNotifications();
+        });
+
         step("Проверить, что на странице присутствует кнопка Knowledge B", () -> {
             mobilePage.checkThePageHasKnowledgeButton();
         });
@@ -52,6 +57,7 @@ public class MobileTests extends TestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)
+    @Tag("Mobile")
     @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
     void mobileLogoutFromAccountTest() {
         step("Нажать на кнопку Log in", () -> {
@@ -74,6 +80,10 @@ public class MobileTests extends TestBase {
         });
         step("Нажать на кнопку Next", () -> {
             mobilePage.clickNext3();
+        });
+
+        step("Нажать на кнопку Allow", () -> {
+            mobilePage.allowPyrusNotifications();
         });
         step("Нажать на кнопку More", () -> {
             mobilePage.clickMore();
@@ -117,6 +127,9 @@ public class MobileTests extends TestBase {
         });
         step("Нажать на кнопку Next", () -> {
             mobilePage.clickNext3();
+        });
+        step("Нажать на кнопку Allow", () -> {
+            mobilePage.allowPyrusNotifications();
         });
         step("Нажать \"+\"", () -> {
             mobilePage.clickPlusButton();

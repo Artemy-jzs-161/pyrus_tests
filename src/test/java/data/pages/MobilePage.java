@@ -26,6 +26,7 @@ public class MobilePage {
             sendButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/sendButton")),
             knowledgeButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_knowledge_base")),
             infoTextElement = $(AppiumBy.id("net.papirus.androidclient:id/fsp_text")),
+            allowButtonElement = $(xpath("//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_button\"]")),
             taskElement = $(xpath("(//android.view.ViewGroup[@resource-id=\"net.papirus.androidclient:id/clTask\"])[1]"));
 
     public MobilePage clickLogin() {
@@ -100,6 +101,11 @@ public class MobilePage {
 
     public MobilePage clickSend() {
         sendButtonElement.click();
+        return this;
+    }
+
+    public MobilePage allowPyrusNotifications() {
+        allowButtonElement.click();
         return this;
     }
 

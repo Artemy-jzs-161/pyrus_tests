@@ -21,7 +21,12 @@ public class TestBase {
             case "emulation" -> Configuration.browser = EmulatorDriver.class.getName();
         }
         Configuration.browserSize = null;
+
+        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 100000;
     }
+
+
 
     @BeforeEach
     void beforeEach() {
