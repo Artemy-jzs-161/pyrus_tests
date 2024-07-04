@@ -9,7 +9,6 @@ import org.junit.jupiter.api.*;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
-@Tag("Mobile")
 @Epic("...")
 @Story("...")
 @Feature("...")
@@ -22,6 +21,7 @@ public class MobileTests extends TestBase {
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
+    @Tag("Mobile")
     void mobileSuccessfulRegistrationTest() {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();
