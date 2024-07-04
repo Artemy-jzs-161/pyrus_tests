@@ -23,7 +23,7 @@ def aspectjWeaverVersion = "1.9.22",
     commonsIo = "2.11.0",
     appiumVersion = '8.3.0',
     assertjVersion = "3.25.3",
-    webdrivermanagerVersion = "5.2.1",
+    webdrivermanagerVersion = "5.8.0",
     javaFakerVersion = "1.0.2",
     jupiterEngine = "5.10.2",
     jupiterApi = "5.8.2";
@@ -46,7 +46,6 @@ dependencies
             testImplementation "org.assertj:assertj-core:$assertjVersion"
             testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
             testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
-            //testImplementation "io.github.bonigarcia:webdrivermanager:5.8.0"
 
             testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterEngine"
         }
@@ -77,9 +76,9 @@ tasks.withType(Test) {
     }
 }
 
-task emulator(type: Test) {
+task mobile(type: Test) {
     useJUnitPlatform {
-        includeTags("emulator")
+        includeTags("Mobile")
     }
 }
 

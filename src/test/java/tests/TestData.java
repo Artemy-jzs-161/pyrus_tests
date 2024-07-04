@@ -5,7 +5,6 @@ import data.models.members.MembersRequestModel;
 
 public class TestData {
     Faker faker = new Faker();
-
     public String nameCompany = "ИП Ромашка";
     public String securityKey = "Lpu9qnyqN550YhBCEtRc1oILXKl-jc-nZm0VmusEUEdtEk0ZdV~meigGWkLL3HgKsEZltOgIyaj4bfHLG53or3n7BnFjrMR1";
     public String email = "carapyz54@gmail.com";
@@ -17,11 +16,11 @@ public class TestData {
     public String noExistArticle = faker.harryPotter().book();
     public String titleCreateCompany = "Создание организации";
     public String elementSearchResultMissing = "Ничего не найдено";
-
     public Integer randomId = faker.idNumber().valid().indexOf(10);
     public String taskName = "Задача номер 1";
     public String taskDescription = "Описание задачи 1";
     public String backgroundColorBlackTheme = "#1c1e21";
+    public String infoText = "Pyrus is the best way to collaborate with your team.";
 
     public MembersRequestModel BorovikA = new MembersRequestModel(
             1108384,
