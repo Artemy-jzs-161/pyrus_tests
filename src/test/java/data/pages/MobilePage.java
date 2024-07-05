@@ -7,7 +7,11 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.By.xpath;
 
+import io.appium.java_client.android.*;
+
 public class MobilePage {
+    private AndroidDriver driver;
+
     private final SelenideElement
             buttonLoginElement = $(AppiumBy.id("net.papirus.androidclient:id/login_tv")),
             emailFieldElement = $(AppiumBy.id("net.papirus.androidclient:id/lf_sp_email")),
@@ -26,7 +30,7 @@ public class MobilePage {
             sendButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/sendButton")),
             knowledgeButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_knowledge_base")),
             infoTextElement = $(AppiumBy.id("net.papirus.androidclient:id/fsp_text")),
-            allowButtonElement = $(xpath("//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_button\"]")),
+            notificationElement = $(AppiumBy.id("com.android.permissioncontroller:id/permission_allow_button")),
             taskElement = $(xpath("(//android.view.ViewGroup[@resource-id=\"net.papirus.androidclient:id/clTask\"])[1]"));
 
     public MobilePage clickLogin() {
@@ -104,8 +108,8 @@ public class MobilePage {
         return this;
     }
 
-    public MobilePage allowPyrusNotifications() {
-        allowButtonElement.click();
+    public MobilePage clickAllow() {
+        notificationElement.find(String.valueOf(text("Allow"))).click();
         return this;
     }
 
