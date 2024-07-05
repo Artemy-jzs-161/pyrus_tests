@@ -99,9 +99,9 @@ public class MembersTests extends TestBase {
         step("Создание пользователя");
         MembersRequestModel createMember = memberApi.createMember(data.memberFirst);
         step("Обновление пользователя");
-        MembersRequestModel updateMember = memberApi.updateMember(createMember.getId(), data.memberSecond);
+        memberApi.updateMember(createMember.getId(), data.memberSecond);
         step("Проверка изменения пользователя");
-        assertNotEquals(data.memberSecond.getFirstName(), updateMember.getFirstName(), "Имена пользователя не совпадает");
+        assertNotEquals(data.memberSecond.getFirstName(), createMember.getFirstName(), "Имена пользователя не совпадает");
     }
 
     @Test
