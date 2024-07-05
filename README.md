@@ -223,12 +223,9 @@ gradle clean test -Denv=remote
 Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`.
 Сборка с параметрами позволяет перед запуском задать нужные параметры для сборки:
 
-
-<img src="images/screenshots/jenkins-project.png">
-
+<img src="data/screenshot/jenkins.png">
 
 </details>
-
 
 <a id="allure"></a>
 
@@ -274,8 +271,7 @@ gradle clean test -Denv=remote
 
 ## <img height="25" src="data/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1290">Jira</a>
 
-### Реализована интеграция Allure TestOps с Jira, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона 
-
+### Реализована интеграция Allure TestOps с Jira, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона
 
 <details>
 В Jira создана задача HOMEWORK-1290
