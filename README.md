@@ -8,6 +8,7 @@
 </html>
 
 ## Содержание
+
 + [Описание](#Описание)
 + [Технологии и инструменты](#Технологии-и-инструменты)
 + [Реализованные проверки](#Реализованные-проверки)
@@ -23,12 +24,15 @@
 + [Интеграция с Jira](#jira)
 + [Уведомления в Telegram с использованием бота](#telegram)
 + [Пример выполнения теста в Selenoid](#video)
-  
 
-## Описание
- Pyrus — это система для автоматизации рабочих процессов, бизнес-коммуникаций, управления задачами и согласования документов. Pyrus является SaaS-приложением и представляет собой единую корпоративную коммуникационную среду, доступную с любого устройства.
+## #Описание
+
+Pyrus — это система для автоматизации рабочих процессов, бизнес-коммуникаций, управления задачами и согласования
+документов. Pyrus является SaaS-приложением и представляет собой единую корпоративную коммуникационную среду, доступную
+с любого устройства.
 
 **Особенности проекта**:
+
 - `Page Object` шаблон проектирования
 - Использование техноголии `Owner` для придания тестам гибкости и легкости конфигурации
 - Возможность запуска тестов: локально, удалённо, по тегам
@@ -69,36 +73,43 @@
 </div>
 
 ## Реализованные проверки
-### UI
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
 
-### Api
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
+### API
+
+- [x] Отправка запроса на получение всех пользователей
+- [x] Отправка запроса на получение пользователя по id
+- [x] Получение сотрудника по несуществующему id
+- [x] Добавление нового сотрудника
+- [x] Изменение данных пользователя по ID
+- [x] Блокировка пользователя по ID
+
+### UI
+
+- [x] Поиск по названию статьи
+- [x] Поиске несуществующей статьи
+- [x] Проверка ссылок при переключении языка
+- [x] Успешная авторизация при вводе логина и пароля
+- [x] Авторизации при вводе некорректного пароля
+- [x] Авторизации при вводе некорректного логина
+- [x] Создание задачи
+- [x] Установка темной темы
 
 ### Mobile
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
+
+- [x] Успешная авторизация при вводе логина и пароля в мобильном приложении
+- [x] Авторизация и выход из мобильного приложения
+- [x] Создание задачи в мобильном приложении
 
 ### Ручные проверки:
-- [x] lorem ipsum dolor sit amet
-- [x] lorem ipsum dolor sit amet
 
-## Запуски тестов НУЖНО ПЕРЕДЕЛАТЬ
+- [x] Создание задачи по форме "Отпуск"
+- [x] Создание формы по шаблону "Кадры"
+- [x] Проверка тарифов на сайте
+
+## Запуски тестов
+
 > [!NOTE]
 > Убедитесь, что у вас установлены Java, Gradle, IntelliJ IDEA и в качестве браузера используется Chrome
->
 
 Конфигурационные файлы `.properties` лежат в папке `resources`. <br/>
 При необходимости можно изменить их.
@@ -109,39 +120,36 @@
 flowchart LR
     A(gradle) --> B(clean)
     B --> C{Выбрать тег}
-    C --> D[test]
-    C --> E[web]
-    C --> F[api]
-    C --> G[android]
+    C --> D[api]
+    C --> E[ui]
+    C --> G[mobile]
     E --> H[-DenvWeb=local]
     E --> I[-DenvWeb=remote]
+    G --> M[-DdeviceHost=browserstack]
+    G --> N[-DdeviceHost=emulation]
     G --> J[-DenvMobile=browserstack]
     G --> K[-DenvMobile=emulator]
-    G --> L[-DenvMobile=localDevice]
+
 ```
 
 ### Локальный запуск тестов
+
 #### Запуск всех тестов
 
 Для запуска следует открыть IntelliJ IDEA и выполнить в терминале:
+
 ```
 gradle clean test
 ```
 
-или 
+#### UI
 
 ```
-gradle clean test -Denv=local
+gradle clean ui
 ```
-
-#### WEB
-
-```
-gradle clean web
-```
-
 
 #### API
+
 ```
 gradle clean api 
 ```
@@ -149,21 +157,36 @@ gradle clean api
 #### Mobile
 
 ```
-gradle clean android -DenvMobile=${ENV_MOBILE}
+gradle clean mobile -DdeviceHost=${DEVICEHOST} -DenvMobile=${ENV_MOBILE}
 ```
-Для запуска мобильных тестов нужно определить значение envMobile:
-- <code>-DenvMobile=browserstack</code> : тесты будут запущены в облачной платформе <a target="_blank" href="https://www.browserstack.com/"> Browserstack </a> 
-- <code>-DenvMobile=emulator</code> : тесты будут запущены в эмуляторе, созданном средствами Appium Server & Appium Inspector. <br/> <a target="_blank" href="https://autotest.how/appium-setup-for-local-android-tutorial"> Инструкция по настройке </a> 
-- <code>-DenvMobile=localDevice</code> : тесты будут запущены на устройстве, подключенному по usb. <br/> Так же требуется настройка Appium Server & Appium Inspector
+
+Тесты можно запустить в в облачной
+платформе <a target="_blank" href="https://www.browserstack.com/"> Browserstack </a>, для этого нужно указать:
+
+<code>-DdeviceHost=browserstack</code>
+<code>-DenvMobile=browserstack</code>
+
+Так же тесты можно запустить в эмуляторе, созданном средствами Appium Server & Appium
+Inspector. <br/> <a target="_blank" href="https://autotest.how/appium-setup-for-local-android-tutorial-md"> Инструкция
+по
+настройке </a>
+
+Для запуска мобильных тестов нужно определить следующие значения deviceHost и envMobile:
+
+<code>-DdeviceHost=emulation</code>
+<code>-DenvMobile=emulator</code>
 
 <details>
    <summary>Дополнительные команды:</summary>
-  
+
 1. Выполнить запрос на формирование отчета:
+
 ```
 gradle allureReport
 ```
+
 2. Открыть отчет в браузере:
+
 ```
 gradle allureServe
 ```
@@ -171,24 +194,29 @@ gradle allureServe
 </details>
 
 ### Удаленный запуск тестов
-Тесты можно запустить из терминала IntelliJ IDEA, а выполнены они будут в удаленно запущенном браузере в Docker-контейнере Selenoid:
+
+Тесты можно запустить из терминала IntelliJ IDEA, а выполнены они будут в удаленно запущенном браузере в
+Docker-контейнере Selenoid:
 
 ```
 gradle clean test -Denv=remote
 ```
 
 Параметры, которыми можно управлять:
+
 ```
--DbrowserName - наименование браузера. По умолчанию chrome
--DbrowserVersion - номер версии браузера. По умолчанию 100.0
--DbrowserSize - размер окна браузера. По умолчанию 1980x1080
--DremoteUrl - адрес удаленного сервера, на котором будут запускаться тесты
+-Dbrowser - наименование браузера. По умолчанию chrome
+-Dbrowser_version - номер версии браузера. По умолчанию 122.0
+-Dbrowser_size - размер окна браузера. По умолчанию 1980x1080
+-DbaseUrl - по умолчанию https://pyrus.com/
+-Dremote_url - адрес удаленного сервера, на котором будут запускаться тесты
 ```
+
 <a id="jenkins"></a>
+
 ## <img height="25" src="data/images/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/)</a>
 
-
->Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`
+> Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`
 
 <img src="images/screenshots/jenkins-project.png">
 
@@ -200,62 +228,81 @@ gradle clean test -Denv=remote
 
 
 <a id="allure"></a>
+
 ## <img height="25" src="data/images/Allure.svg" width="25"/></a> <a name="Allure"></a>Интеграция с [Allure Report](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/allure/)</a>
 
+### По результатам каждого запуска тестов в Jenkins создается Allure отчет с подробной информацией по каждому пройденному тесту.
 
-#### Диаграммы прохождения тестов
-`ALLURE REPORT` - отображает дату и время теста, общее количество запущенных тестов, а также диаграмму с процентом и количеством успешных, упавших и сломавшихся в процессе выполнения тестов <br/>
+<details>
+
+Диаграммы прохождения тестов
+
+`ALLURE REPORT` - отображает дату и время теста, общее количество запущенных тестов, а также диаграмму с процентом и
+количеством успешных, упавших и сломавшихся в процессе выполнения тестов <br/>
 `TREND` - отображает тенденцию выполнения тестов для всех запусков <br/>
 `SUITES` - отображает распределение тестов по сьютам <br/>
 `CATEGORIES` - отображает распределение неудачных тестов по типам дефектов
 
-<img src="images/screenshots/allure-main-report.png">
+<img src="data/screenshot/allure.png">
 
 #### Развернутый результат прохождения тестов:
+
 1. Общий список автотестов
 2. Содержание автотеста
-3. Вложения
-<img src="images/screenshots/allure-suites.png">
+3. Вложения <img src="data/screenshot/allure_suites.png">
 
-
+</details>
 
 <a id="allure-testops"></a>
-## <img height="25" src="data/images/Allure_TO.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/">Allure TestOps</a>
+
+## <img height="25" src="data/images/Allure_TO.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4316/">Allure TestOps</a>
 
 ### Полная статистика по прохождению тест-кейсов, отчёты и приложения к ним хранятся в Allure TestOps(запрос доступа admin@qa.guru).
 
->Диаграммы прохождения тестов
->
-<img src="images/screenshots/allure-testops-dashboards.png">
+<details>
 
+Пример тест кейсов в Allure TestOps
+
+<img src="data/screenshot/allure_testOps.png">
+
+</details>
 
 <a id="jira"></a>
-## <img height="25" src="data/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/">Jira</a>
 
->В Jira создана задача
->
-<img src="images/screenshots/jira-integration.png">
+## <img height="25" src="data/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1290">Jira</a>
 
->В разделе `Allure:Test Cases` отображаются интегрированные автоматизированные и ручные тесты
-<img src="images/screenshots/jira-with-allure-test-cases.png">
+### В Jira создана задача HOMEWORK-1290
 
+<details>
+В разделе `Allure:Test Cases` отображаются интегрированные автоматизированные и ручные тесты
+
+<img src="data/screenshot/jira.png">
+</details>
 
 <a id="telegram"></a>
+
 ## <img height="25" src="data/images/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
 
-> Бот, созданный в Telegram, после завершения сборки отправляет сообщение с отчетом о прохождении тестов
-> 
-<img src="images/screenshots/telegram-notification.png">
+### Бот, созданный в Telegram, после завершения сборки отправляет сообщение с отчетом о прохождении тестов
+
+<details>
+<img src="data/screenshot/telegram.png">
+</details>
 
 <a id="video"></a>
+
 ## <img height="25" src="data/images/Selenoid.svg" width="25"/></a>Видео запуска тестов в Selenoid
 
-> К каждому UI-тесту в отчете прилагается видео
+### К каждому UI-тесту в отчете прилагается видео
+
+<details>
 <p align="center">
   <img src="">
 </p>
 
 > К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
+
 <p align="center">
   <img src="">
 </p>
+</details>

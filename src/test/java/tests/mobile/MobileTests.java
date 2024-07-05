@@ -20,8 +20,7 @@ public class MobileTests extends TestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)
-    @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
-
+    @DisplayName("Успешная авторизация при вводе логина и пароля в мобильном приложении")
     void mobileSuccessfulRegistrationTest() {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();
@@ -58,7 +57,7 @@ public class MobileTests extends TestBase {
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @Tag("Mobile")
-    @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
+    @DisplayName("Авторизация и выход из мобильного приложения")
     void mobileLogoutFromAccountTest() {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();
@@ -105,7 +104,7 @@ public class MobileTests extends TestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)
-    @DisplayName("Проверка успешной авторизации при вводе логина и пароля в мобильном приложении")
+    @DisplayName("Создание задачи в мобильном приложении")
     void mobileCreateTaskTest() {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();

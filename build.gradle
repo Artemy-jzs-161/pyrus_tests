@@ -76,6 +76,10 @@ tasks.withType(Test) {
     }
 }
 
+test {
+    useJUnitPlatform()
+}
+
 task mobile(type: Test) {
     useJUnitPlatform {
         includeTags("Mobile")
