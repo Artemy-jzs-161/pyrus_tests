@@ -216,15 +216,18 @@ gradle clean test -Denv=remote
 
 ## <img height="25" src="data/images/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/)</a>
 
-> Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`
+### По результатам каждого запуска тестов в Jenkins создается Allure отчет с подробной информацией по каждому пройденному тесту.
+
+<details>
+
+Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`.
+Сборка с параметрами позволяет перед запуском задать нужные параметры для сборки:
+
 
 <img src="images/screenshots/jenkins-project.png">
 
-> Сборка с параметрами позволяет перед запуском задать нужные параметры для сборки:
 
-<p align="center">
-<img src="images/screenshots/jenkins-build.png"/>
-</p>
+</details>
 
 
 <a id="allure"></a>
@@ -271,9 +274,12 @@ gradle clean test -Denv=remote
 
 ## <img height="25" src="data/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1290">Jira</a>
 
-### В Jira создана задача HOMEWORK-1290
+### Реализована интеграция Allure TestOps с Jira, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона 
+
 
 <details>
+В Jira создана задача HOMEWORK-1290
+
 В разделе `Allure:Test Cases` отображаются интегрированные автоматизированные и ручные тесты
 
 <img src="data/screenshot/jira.png">
