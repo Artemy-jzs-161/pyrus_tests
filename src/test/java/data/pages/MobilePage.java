@@ -1,17 +1,18 @@
 package data.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.appium.AppiumScrollOptions;
+import com.codeborne.selenide.appium.SelenideAppiumElement;
 import io.appium.java_client.AppiumBy;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.By.xpath;
+import static com.codeborne.selenide.appium.ScrollDirection.DOWN;
+import static com.codeborne.selenide.appium.SelenideAppium.$;
+import org.openqa.selenium.By;
 
-import io.appium.java_client.android.*;
 
 public class MobilePage {
-    private AndroidDriver driver;
-
     private final SelenideElement
             buttonLoginElement = $(AppiumBy.id("net.papirus.androidclient:id/login_tv")),
             emailFieldElement = $(AppiumBy.id("net.papirus.androidclient:id/lf_sp_email")),
@@ -30,7 +31,6 @@ public class MobilePage {
             sendButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/sendButton")),
             knowledgeButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_knowledge_base")),
             infoTextElement = $(AppiumBy.id("net.papirus.androidclient:id/fsp_text")),
-            notificationElement = $(AppiumBy.id("com.android.permissioncontroller:id/permission_allow_button")),
             taskElement = $(xpath("(//android.view.ViewGroup[@resource-id=\"net.papirus.androidclient:id/clTask\"])[1]"));
 
     public MobilePage clickLogin() {
@@ -108,18 +108,18 @@ public class MobilePage {
         return this;
     }
 
-    public MobilePage clickAllow() {
-        notificationElement.find(String.valueOf(text("Allow"))).click();
+    public MobilePage scrollMethod() {
+        $(By.id("net.papirus.androidclient:id/item_account_content")).scroll(AppiumScrollOptions.down());
         return this;
     }
 
     public MobilePage checkThePageHasKnowledgeButton() {
-        knowledgeButtonElement.should(exist);;
+        knowledgeButtonElement.should(exist);
         return this;
     }
 
     public MobilePage checkThePageHasLogInButton() {
-        buttonLoginElement.should(exist);;
+        buttonLoginElement.should(exist);
         return this;
     }
 

@@ -6,6 +6,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.annotation.Nonnull;
@@ -28,6 +29,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         caps.setCapability("project", browserstackConfig.project());
         caps.setCapability("build", browserstackConfig.build());
         caps.setCapability("name", browserstackConfig.name());
+        caps.setCapability("autoGrantPermissions", "true");
 
         try {
             return new RemoteWebDriver(

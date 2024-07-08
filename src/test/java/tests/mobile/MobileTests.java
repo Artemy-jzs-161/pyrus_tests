@@ -2,12 +2,14 @@ package tests.mobile;
 
 import data.pages.MobilePage;
 import io.qameta.allure.*;
+
 import tests.TestData;
 
 import org.junit.jupiter.api.*;
 
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
+import static java.lang.Thread.sleep;
 
 @Epic("...")
 @Story("...")
@@ -17,12 +19,12 @@ public class MobileTests extends TestBase {
     MobilePage mobilePage = new MobilePage();
     TestData data = new TestData();
 
+
     @Test
-    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Успешная авторизация при вводе логина и пароля в мобильном приложении")
-    void mobileSuccessfulRegistrationTest() {
+    void mobileSuccessfulRegistrationTest() throws InterruptedException {
         step("Нажать на кнопку Log in", () -> {
             mobilePage.clickLogin();
         });
@@ -44,9 +46,11 @@ public class MobileTests extends TestBase {
         step("Нажать на кнопку Next", () -> {
             mobilePage.clickNext3();
         });
-        step("Нажать на кнопку Allow", () -> {
+/*
+        step("Allow", () -> {
             mobilePage.clickAllow();
         });
+*/
         step("Проверить, что на странице присутствует кнопка Knowledge B", () -> {
             mobilePage.checkThePageHasKnowledgeButton();
         });
@@ -54,6 +58,7 @@ public class MobileTests extends TestBase {
 
     @Test
     @Owner("borovikaa")
+    @Tag("Mobile")
     @Severity(BLOCKER)
     @DisplayName("Авторизация и выход из мобильного приложения")
     void mobileLogoutFromAccountTest() {
@@ -84,8 +89,14 @@ public class MobileTests extends TestBase {
         step("Нажать на кнопку More", () -> {
             mobilePage.clickMore();
         });
+
+        step("Скролл к кнопке Log out", () -> {
+            mobilePage.scrollMethod();
+        });
+
         step("Нажать на кнопку Log out", () -> {
             mobilePage.clickLogOut();
+
         });
         step("Нажать на кнопку Yes", () -> {
             mobilePage.clickYes();

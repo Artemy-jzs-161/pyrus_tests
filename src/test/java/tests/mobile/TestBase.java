@@ -8,6 +8,7 @@ import drivers.*;
 import helpers.Attach;
 
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -22,16 +23,18 @@ public class TestBase {
         }
         Configuration.browserSize = null;
 
-        Configuration.timeout = 15000;
-        Configuration.pageLoadTimeout = 100000;
-    }
 
+    }
 
 
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("autoGrantPermissions", "true");
+
     }
 
     @AfterEach

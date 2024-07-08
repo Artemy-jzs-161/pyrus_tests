@@ -28,7 +28,9 @@ public class EmulatorDriver implements WebDriverProvider {
                 .setDeviceName(emulatorConfig.deviceName())
                 .setApp(getAppPath())
                 .setAppPackage(emulatorConfig.appPackage())
-                .setAppActivity(emulatorConfig.appActivity());
+                .setAppActivity(emulatorConfig.appActivity())
+                .setCapability("autoGrantPermissions", "true");
+
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
