@@ -8,6 +8,7 @@ public class TestData {
     public String nameCompany = "ИП Ромашка";
     public String securityKey = "Lpu9qnyqN550YhBCEtRc1oILXKl-jc-nZm0VmusEUEdtEk0ZdV~meigGWkLL3HgKsEZltOgIyaj4bfHLG53or3n7BnFjrMR1";
     public String email = "carapyz54@gmail.com";
+    public String invalidEmail = "carapyz";
     public String incorrectEmail = faker.internet().emailAddress();
     public String password = "Nv6J!Ew2s2ehKir";
     public String incorrectPassword = faker.internet().password();
@@ -20,7 +21,8 @@ public class TestData {
     public String taskName = "Задача номер 1";
     public String taskDescription = "Описание задачи 1";
     public String backgroundColorBlackTheme = "#1c1e21";
-    public String infoText = "Pyrus is the best way to collaborate with your team.";
+    public String incorrectPasswordMessageMobile = "The password you entered is incorrect";
+
 
     public MembersRequestModel BorovikA = new MembersRequestModel(
             1108384,

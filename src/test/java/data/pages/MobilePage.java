@@ -1,16 +1,12 @@
 package data.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.appium.AppiumScrollOptions;
-import com.codeborne.selenide.appium.SelenideAppiumElement;
 import io.appium.java_client.AppiumBy;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.By.xpath;
-import static com.codeborne.selenide.appium.ScrollDirection.DOWN;
-import static com.codeborne.selenide.appium.SelenideAppium.$;
-import org.openqa.selenium.By;
-
 
 public class MobilePage {
     private final SelenideElement
@@ -21,17 +17,10 @@ public class MobilePage {
             passwordFieldElement = $(AppiumBy.id("net.papirus.androidclient:id/lf_ep_pass")),
             next2ButtonElement = $(xpath("(//android.widget.Button[@resource-id=\"net.papirus.androidclient:id/al_next\"])[2]\n")),
             next3ButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_lists_image")),
-            moreButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_more")),
-            logOutButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_options_signout")),
-            yesButtonElement = $(AppiumBy.id("android:id/button1")),
-            plusButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_expanded_fab_item_fab")),
-            newTaskElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_expanded_fab_item_tv")),
-            taskNameFieldElement = $(AppiumBy.id("net.papirus.androidclient:id/taskTitleEditText")),
-            taskDescriptionFieldElement = $(AppiumBy.id("net.papirus.androidclient:id/taskDescriptionEditText")),
-            sendButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/sendButton")),
             knowledgeButtonElement = $(AppiumBy.id("net.papirus.androidclient:id/nd_tab_knowledge_base")),
-            infoTextElement = $(AppiumBy.id("net.papirus.androidclient:id/fsp_text")),
-            taskElement = $(xpath("(//android.view.ViewGroup[@resource-id=\"net.papirus.androidclient:id/clTask\"])[1]"));
+            inboxButtonElement = $(xpath("//android.view.ViewGroup[@resource-id=\"net.papirus.androidclient:id/nd_tab_inbox\"]")),
+            incorrectPasswordMessageElement = $(xpath("//android.widget.TextView[@resource-id=\"net.papirus.androidclient:id/textinput_error\"]")),
+            incorrectLoginELement = $(AppiumBy.id("net.papirus.androidclient:id/textinput_error"));
 
     public MobilePage clickLogin() {
         buttonLoginElement.click();
@@ -68,72 +57,20 @@ public class MobilePage {
         return this;
     }
 
-    public MobilePage clickMore() {
-        moreButtonElement.click();
-        return this;
-    }
-
-    public MobilePage clickLogOut() {
-        logOutButtonElement.click();
-        return this;
-    }
-
-    public MobilePage clickYes() {
-        yesButtonElement.click();
-        return this;
-    }
-
-    public MobilePage clickPlusButton() {
-        plusButtonElement.click();
-        return this;
-    }
-
-    public MobilePage clickNewTask() {
-        newTaskElement.click();
-        return this;
-    }
-
-    public MobilePage setTaskName(String name) {
-        taskNameFieldElement.sendKeys(name);
-        return this;
-    }
-
-    public MobilePage setTaskDescription(String description) {
-        taskDescriptionFieldElement.sendKeys(description);
-        return this;
-    }
-
-    public MobilePage clickSend() {
-        sendButtonElement.click();
-        return this;
-    }
-
-    public MobilePage scrollMethod() {
-        $(By.id("net.papirus.androidclient:id/item_account_content")).scroll(AppiumScrollOptions.down());
-        return this;
-    }
-
     public MobilePage checkThePageHasKnowledgeButton() {
         knowledgeButtonElement.should(exist);
         return this;
     }
 
-    public MobilePage checkThePageHasLogInButton() {
-        buttonLoginElement.should(exist);
+    public MobilePage checkLoginIncorrectMessage(String text) {
+        incorrectLoginELement.shouldHave(text(text + ": An email address must contain a single @ sign."));
         return this;
     }
 
-    public MobilePage checkInfoText(String text) {
-        infoTextElement.shouldHave(text(text));
+    public MobilePage checkPasswordIncorrectMessage(String text) {
+        incorrectPasswordMessageElement.shouldHave(text(text));
         return this;
     }
-
-    public MobilePage checkCreationTask(String text) {
-        taskElement.shouldHave(text(text));
-        return this;
-    }
-
-
 }
 
 
