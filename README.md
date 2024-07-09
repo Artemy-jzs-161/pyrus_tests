@@ -298,8 +298,14 @@ gradle clean test -Denv=remote
 
 ### К каждому UI-тесту в отчете прилагается видео
 
+<video width="320" height="240" controls>
+  <source src="data/video/ui.mp4" type="video/mp4">
+</video>
 
 ### К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
 
+<video width="320" height="240" controls>
+  <source src="data/video/mobile.mp4" type="video/mp4">
+</video>
 
 </details>
