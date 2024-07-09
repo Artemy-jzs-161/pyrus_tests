@@ -10,6 +10,7 @@ import tests.TestData;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
+@Tag("Mobile")
 @Epic("Управление пользователями")
 @Story("Авторизация пользователей")
 @Feature("Мобильная авторизация")
@@ -19,7 +20,6 @@ public class MobileLoginTests extends TestBase {
     TestData data = new TestData();
 
     @Test
-    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Успешная авторизация при вводе логина и пароля в мобильном приложении")
@@ -51,7 +51,6 @@ public class MobileLoginTests extends TestBase {
     }
 
     @Test
-    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Проверка авторизации при вводе неверного пароля")
@@ -80,7 +79,6 @@ public class MobileLoginTests extends TestBase {
     }
 
     @Test
-    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Проверка авторизации при вводе неверного Email адреса")
