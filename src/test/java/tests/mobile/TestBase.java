@@ -22,8 +22,6 @@ public class TestBase {
             case "emulation" -> Configuration.browser = EmulatorDriver.class.getName();
         }
         Configuration.browserSize = null;
-
-
     }
 
 
@@ -31,10 +29,6 @@ public class TestBase {
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("autoGrantPermissions", "true");
-
     }
 
     @AfterEach
