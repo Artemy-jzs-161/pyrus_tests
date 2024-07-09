@@ -19,6 +19,7 @@ public class MobileLoginTests extends TestBase {
     TestData data = new TestData();
 
     @Test
+    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Успешная авторизация при вводе логина и пароля в мобильном приложении")
@@ -50,6 +51,7 @@ public class MobileLoginTests extends TestBase {
     }
 
     @Test
+    @Tag("Mobile")
     @Owner("borovikaa")
     @Severity(BLOCKER)
     @DisplayName("Проверка авторизации при вводе неверного пароля")
