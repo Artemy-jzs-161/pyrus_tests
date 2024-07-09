@@ -11,9 +11,8 @@ repositories {
 compileTestJava {
     options.encoding = 'UTF-8'
 }
-
 def aspectjWeaverVersion = "1.9.22",
-    selenideVersion = "7.3.3",
+    selenideVersion = "6.13.0",
     restAssuredVersion = "5.4.0",
     allureVersion = "2.27.0",
     junitVersion = "5.10.2",
@@ -23,34 +22,31 @@ def aspectjWeaverVersion = "1.9.22",
     commonsIo = "2.11.0",
     appiumVersion = '8.3.0',
     assertjVersion = "3.25.3",
-    webdrivermanagerVersion = "5.8.0",
-    javaFakerVersion = "1.0.2",
-    jupiterEngine = "5.10.2",
-    selenideAppium = "7.3.3",
-    jupiterApi = "5.8.2";
+    webdrivermanagerVersion = "5.2.1",
+    aspectjweaverVersion = "1.9.22",
+    junitJupiterEngine = "5.10.2",
+    javaFakerVersion = "1.0.2";
 
 dependencies
         {
+            testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
             testImplementation "org.aspectj:aspectjweaver:$aspectjWeaverVersion"
-            testImplementation "com.codeborne:selenide:$selenideVersion"
-            testImplementation "com.codeborne:selenide-appium:$selenideAppium"
+            testImplementation "org.assertj:assertj-core:$assertjVersion"
             testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
-            testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterApi"
+            testImplementation "org.aeonbits.owner:owner:$ownerVersion"
+            testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
+            testImplementation "com.codeborne:selenide:$selenideVersion"
+            testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
             testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
             testImplementation "io.rest-assured:json-schema-validator:$restAssuredVersion"
-            testImplementation "org.aeonbits.owner:owner:$ownerVersion"
             testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
             testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
             testImplementation "io.appium:java-client:$appiumVersion"
-            testImplementation "org.seleniumhq.selenium:selenium-java:4.8.0"
-            testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
             testImplementation "commons-codec:commons-codec:$commons"
             testImplementation "commons-io:commons-io:$commonsIo"
-            testImplementation "org.assertj:assertj-core:$assertjVersion"
-            testImplementation "com.github.javafaker:javafaker:$javaFakerVersion"
-            testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanagerVersion"
+            runtimeOnly "org.aspectj:aspectjweaver:$aspectjweaverVersion"
+            testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterEngine"
 
-            testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterEngine"
         }
 
 allure {
