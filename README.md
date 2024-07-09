@@ -302,6 +302,6 @@ gradle clean test -Denv=remote
 
 ### К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
 
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=m0B88BHgmNk&ab_channel=ArtemBorovik)
+<video src='https://www.youtube.com/watch?v=m0B88BHgmNk&ab_channel=ArtemBorovik' width=180/>
 
 </details>
