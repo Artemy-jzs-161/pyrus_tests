@@ -298,10 +298,10 @@ gradle clean test -Denv=remote
 
 ### К каждому UI-тесту в отчете прилагается видео
 
-
+<img title="Selenoid Video" src="data/video/ui.gif" width="550" height="350"  alt="video">   
 
 ### К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
 
-<video src='https://www.youtube.com/watch?v=m0B88BHgmNk&ab_channel=ArtemBorovik' width=180/>
+<img title="Selenoid Video" src="data/video/mobile.gif" width="550" height="350"  alt="video">   
 
 </details>
