@@ -294,17 +294,12 @@ gradle clean test -Denv=remote
 <a id="video"></a>
 
 ## <img height="25" src="data/images/Selenoid.svg" width="25"/></a>Видео запуска тестов в Selenoid
+<details>
 
 ### К каждому UI-тесту в отчете прилагается видео
 
-<details>
-<p align="center">
-  <img src="">
-</p>
 
-> К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
+### К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
 
-<p align="center">
-  <img src="">
-</p>
+
 </details>
