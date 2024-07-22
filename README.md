@@ -57,24 +57,38 @@ Pyrus — это система для автоматизации рабочих
 
 ## Технологии и инструменты
 
-<div align="center">
+<p align="left">
+ <h3>Technologies</h3>
+<summary>Code</summary>
 <a href="https://www.jetbrains.com/idea/"><img alt="InteliJ IDEA" height="50" src="media/images/Idea.svg" width="50"/></a>
-<a href="https://github.com/"><img alt="GitHub" height="50" src="media/images/GitHub.svg" width="50"/></a>  
 <a href="https://www.java.com/"><img alt="Java" height="50" src="media/images/Java.svg" width="50"/></a>
+<a href="https://selenide.org/"><img alt="Selenide" height="50" src="media/images/Selenide.svg" width="50"/></a>
 <a href="https://gradle.org/"><img alt="Gradle" height="50" src="media/images/Gradle.svg" width="50"/></a>  
 <a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="media/images/Junit5.svg" width="50"/></a>
-<a href="https://selenide.org/"><img alt="Selenide" height="50" src="media/images/Selenide.svg" width="50"/></a>
-<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="media/images/Selenoid.svg" width="50"/></a>
 <a href="https://rest-assured.io/"><img alt="RestAssured" height="50" src="media/images/RestAssured.svg" width="50"/></a>
-<a href="https://www.browserstack.com/"><img alt="Browserstack" height="50" src="media/images/Browserstack.svg" width="50"/></a>
 <a href="https://appium.io/"><img alt="Appium" height="50" src="media/images/Appium.svg" width="50"/></a>
 <a href="https://developer.android.com/studio"><img alt="Android Studio" height="50" src="media/images/Android_Studio.svg" width="50"/></a>
+<summary>Infrastructure</summary>
+<a href="https://qameta.io/"><img alt="Allure TestOps" height="50" src="media/images/Allure_TO.svg" width="50"/></a>
+<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="media/images/Selenoid.svg" width="50"/></a>
 <a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="media/images/Jenkins.svg" width="50"/></a>
-<a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="media/images/Allure.svg" width="50"/></a>
+<a href="https://github.com/"><img alt="GitHub" height="50" src="media/images/GitHub.svg" width="50"/></a>  
+<a href="https://www.browserstack.com/"><img alt="Browserstack" height="50" src="media/images/Browserstack.svg" width="50"/></a>
+<a href="https://www.docker.com/"><img alt="Docker" height="50" src="media/images/docker.svg" width="50"/></a>
+<summary>Tests visualization</summary>
+<a href="https://allurereport.org/"><img alt="Allure_Report" height="50" src="media/images/Allure_Report.png" width="50"/></a>
 <a href="https://qameta.io/"><img alt="Allure TestOps" height="50" src="media/images/Allure_TO.svg" width="50"/></a>
 <a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="media/images/Jira.svg" width="50"/></a>  
+<a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="media/images/Jenkins.svg" width="50"/></a>
+<summary>Tests notifications</summary>
 <a href="https://telegram.org/"><img alt="Telegram" height="50" src="media/images/Telegram.svg" width="50"/></a>
+<summary>Workflow</summary>
+<a href="https://allurereport.org/"><img alt="Allure_Report" height="50" src="media/images/Allure_Report.png" width="50"/></a>
+<a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="media/images/Jira.svg" width="50"/></a>  
+</p>
+
 </div>
+
 
 <a id="implementedChecks"></a>
 
