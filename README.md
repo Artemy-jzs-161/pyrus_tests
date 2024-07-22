@@ -13,7 +13,6 @@
 * <a href="#technologiesAndTools">Технологии и инструменты</a>
 * <a href="#implementedChecks">Реализованные проверки</a>
 * <a href="#testRuns">Запуски тестов</a>
-* <a href="#api">Запуски тестов</a>
 * <a href="#validCombinations">Допустимые комбинации</a>
 * <a href="#localTestLaunch">Локальный запуск тестов</a>
 * <a href="#remoteTestLaunch">Удаленный запуск тестов</a>
@@ -113,8 +112,7 @@ Pyrus — это система для автоматизации рабочих
 - [x] Создание формы по шаблону "Кадры"
 - [x] Проверка тарифов на сайте
 
-<a id="implementedChecks"></a>
-
+<a id="testRuns"></a>
 ## Запуски тестов
 
 > [!NOTE]
