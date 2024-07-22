@@ -229,7 +229,7 @@ gradle clean test -Denv=remote
 
 <a id="jenkins"></a>
 
-## <img height="25" src="data/images/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/)</a>
+## <img height="25" src="media/images/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/)</a>
 
 ### По результатам каждого запуска тестов в Jenkins создается Allure отчет с подробной информацией по каждому пройденному тесту.
 
@@ -244,7 +244,7 @@ gradle clean test -Denv=remote
 
 <a id="allure"></a>
 
-## <img height="25" src="data/images/Allure.svg" width="25"/></a> <a name="Allure"></a>Интеграция с [Allure Report](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/allure/)</a>
+## <img height="25" src="media/images/Allure.svg" width="25"/></a> <a name="Allure"></a>Интеграция с [Allure Report](https://jenkins.autotests.cloud/job/BorovikA_diplom_pyrus/allure/)</a>
 
 ### По результатам каждого запуска тестов в Jenkins создается Allure отчет с подробной информацией по каждому пройденному тесту.
 
@@ -272,7 +272,7 @@ gradle clean test -Denv=remote
 
 <a id="allure-testops"></a>
 
-## <img height="25" src="data/images/Allure_TO.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4316/">Allure TestOps</a>
+## <img height="25" src="media/images/Allure_TO.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4316/">Allure TestOps</a>
 
 ### Полная статистика по прохождению тест-кейсов, отчёты и приложения к ним хранятся в Allure TestOps(запрос доступа admin@qa.guru).
 
@@ -286,7 +286,7 @@ gradle clean test -Denv=remote
 
 <a id="jira"></a>
 
-## <img height="25" src="data/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1290">Jira</a>
+## <img height="25" src="media/images/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1290">Jira</a>
 
 ### Реализована интеграция Allure TestOps с Jira, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона
 
@@ -300,7 +300,7 @@ gradle clean test -Denv=remote
 
 <a id="telegram"></a>
 
-## <img height="25" src="data/images/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
+## <img height="25" src="media/images/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
 
 ### Бот, созданный в Telegram, после завершения сборки отправляет сообщение с отчетом о прохождении тестов
 
@@ -310,7 +310,7 @@ gradle clean test -Denv=remote
 
 <a id="video"></a>
 
-## <img height="25" src="data/images/Selenoid.svg" width="25"/></a>Видео запуска тестов в Selenoid
+## <img height="25" src="media/images/Selenoid.svg" width="25"/></a>Видео запуска тестов в Selenoid
 
 <details>
 
