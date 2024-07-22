@@ -29,7 +29,7 @@ public class LoginTests extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)
-    @DisplayName("Проверка авторизации при вводе некорректного пароля")
+    @DisplayName("Проверка попытки авторизации, при вводе некорректного пароля")
     void checkIncorrectPasswordTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
@@ -42,7 +42,7 @@ public class LoginTests extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)
-    @DisplayName("Проверка авторизации при вводе некорректного логина")
+    @DisplayName("Проверка попытки авторизации, при вводе некорректного логина")
     void checkIncorrectLoginTest() {
         step("Открыть страницу", () -> greetingPages.openPage(String.valueOf(ru)));
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
