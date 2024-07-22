@@ -1,6 +1,6 @@
 package tests.ui;
 
-import data.enums.Language;
+import enums.Language;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;

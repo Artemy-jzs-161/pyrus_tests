@@ -1,6 +1,6 @@
 package tests.mobile;
 
-import data.pages.MobilePage;
+import pages.MobilePage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

@@ -2,7 +2,7 @@ package api;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
-import data.models.authorization.*;
+import models.authorization.*;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;

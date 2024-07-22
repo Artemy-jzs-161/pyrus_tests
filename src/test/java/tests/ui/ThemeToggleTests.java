@@ -3,7 +3,7 @@ package tests.ui;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-import static data.enums.Language.ru;
+import static enums.Language.ru;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.NORMAL;
 

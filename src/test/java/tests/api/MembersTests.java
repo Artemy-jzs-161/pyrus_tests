@@ -2,7 +2,7 @@ package tests.api;
 
 import api.MemberApi;
 import extensions.*;
-import data.models.members.*;
+import models.members.*;
 import tests.TestData;
 
 import io.qameta.allure.*;

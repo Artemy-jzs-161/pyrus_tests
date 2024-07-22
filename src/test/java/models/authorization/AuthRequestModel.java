@@ -1,4 +1,4 @@
-package data.models.authorization;
+package models.authorization;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

@@ -2,7 +2,7 @@ package api;
 
 import io.restassured.http.ContentType;
 import lombok.Getter;
-import data.models.members.*;
+import models.members.*;
 import specs.TestSpecifications;
 
 import static io.restassured.RestAssured.given;

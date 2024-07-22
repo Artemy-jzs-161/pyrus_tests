@@ -1,7 +1,7 @@
 package extensions;
 
 import api.AuthorizationApi;
-import data.models.authorization.*;
+import models.authorization.*;
 import org.junit.jupiter.api.extension.*;
 import tests.TestData;
 

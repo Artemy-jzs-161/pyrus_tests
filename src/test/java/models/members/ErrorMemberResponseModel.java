@@ -1,4 +1,4 @@
-package data.models.members;
+package models.members;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -3,7 +3,7 @@ package tests.ui;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 
-import data.pages.*;
+import pages.*;
 import helpers.Attach;
 import tests.TestData;
 

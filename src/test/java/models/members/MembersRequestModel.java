@@ -1,4 +1,4 @@
-package data.models.members;
+package models.members;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
