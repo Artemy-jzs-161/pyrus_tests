@@ -10,22 +10,24 @@
 ## Содержание
 
 * <a href="#description">Описание</a>
-+ [Технологии и инструменты](#Технологии-и-инструменты)
-+ [Реализованные проверки](#Реализованные-проверки)
-+ [Запуск тестов](#)
-    + [Допустимые комбинации](#Допустимые-комбинации)
-    + [Локальный запуск тестов](#Локальный-запуск-тестов)
-    + [Удаленный запуск тестов](#Удаленный-запуск-тестов)
-+ [Cборка тестов в Jenkins](#jenkins)
-+ [Интеграция с Allure Report](#allure)
-    + [Диаграммы прохождения тестов](#Диаграммы-прохождения-тестов)
-    + [Развернутый результат прохождения тестов](#Развернутый-результат-прохождения-тестов)
-+ [Интеграция с Allure TestOps](#allure-testops)
-+ [Интеграция с Jira](#jira)
-+ [Уведомления в Telegram с использованием бота](#telegram)
-+ [Пример выполнения теста в Selenoid](#video)
+* <a href="#technologiesAndTools">Технологии и инструменты</a>
+* <a href="#implementedChecks">Реализованные проверки</a>
+* <a href="#testRuns">Запуски тестов</a>
+* <a href="#api">Запуски тестов</a>
+* <a href="#validCombinations">Допустимые комбинации</a>
+* <a href="#localTestLaunch">Локальный запуск тестов</a>
+* <a href="#remoteTestLaunch">Удаленный запуск тестов</a>
+* <a href="#jenkins">Cборка тестов в Jenkins</a>
+* <a href="#allure">Интеграция с Allure Report</a>
+* <a href="#testPassingCharts">Диаграммы прохождения тестов</a>
+* <a href="#detailedTestResults">Развернутый результат прохождения тестов</a>
+* <a href="#allure-testops">Интеграция с Allure TestOps</a>
+* <a href="#jira">Интеграция с Jira</a>
+* <a href="#telegram">Уведомления в Telegram с использованием бота</a>
+* <a href="#video">Пример выполнения теста в Selenoid</a>
 
 <a id="description"></a>
+
 ## Описание
 
 Pyrus — это система для автоматизации рабочих процессов, бизнес-коммуникаций, управления задачами и согласования
@@ -52,6 +54,8 @@ Pyrus — это система для автоматизации рабочих
     - Логи консоли браузера
     - Видео выполнения автотеста
 
+<a id="technologiesandtools"></a>
+
 ## Технологии и инструменты
 
 <div align="center">
@@ -72,6 +76,8 @@ Pyrus — это система для автоматизации рабочих
 <a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="media/images/Jira.svg" width="50"/></a>  
 <a href="https://telegram.org/"><img alt="Telegram" height="50" src="media/images/Telegram.svg" width="50"/></a>
 </div>
+
+<a id="implementedChecks"></a>
 
 ## Реализованные проверки
 
@@ -107,6 +113,8 @@ Pyrus — это система для автоматизации рабочих
 - [x] Создание формы по шаблону "Кадры"
 - [x] Проверка тарифов на сайте
 
+<a id="implementedChecks"></a>
+
 ## Запуски тестов
 
 > [!NOTE]
@@ -114,6 +122,8 @@ Pyrus — это система для автоматизации рабочих
 
 Конфигурационные файлы `.properties` лежат в папке `resources`. <br/>
 При необходимости можно изменить их.
+
+<a id="validCombinations"></a>
 
 ### Допустимые комбинации
 
@@ -132,6 +142,8 @@ flowchart LR
     G --> K[-DenvMobile=emulator]
 
 ```
+
+<a id="localTestLaunch"></a>
 
 ### Локальный запуск тестов
 
@@ -194,6 +206,8 @@ gradle allureServe
 
 </details>
 
+<a id="remoteTestLaunch"></a>
+
 ### Удаленный запуск тестов
 
 Тесты можно запустить из терминала IntelliJ IDEA, а выполнены они будут в удаленно запущенном браузере в
@@ -235,7 +249,7 @@ gradle clean test -Denv=remote
 ### По результатам каждого запуска тестов в Jenkins создается Allure отчет с подробной информацией по каждому пройденному тесту.
 
 <details>
-
+<a id="testPassingCharts"></a>
 Диаграммы прохождения тестов
 
 `ALLURE REPORT` - отображает дату и время теста, общее количество запущенных тестов, а также диаграмму с процентом и
@@ -245,6 +259,8 @@ gradle clean test -Denv=remote
 `CATEGORIES` - отображает распределение неудачных тестов по типам дефектов
 
 <img src="media/screenshot/allure.png">
+
+<a id="testPassingCharts"></a>
 
 #### Развернутый результат прохождения тестов:
 
@@ -295,6 +311,7 @@ gradle clean test -Denv=remote
 <a id="video"></a>
 
 ## <img height="25" src="data/images/Selenoid.svg" width="25"/></a>Видео запуска тестов в Selenoid
+
 <details>
 
 ### К каждому UI-тесту в отчете прилагается видео
