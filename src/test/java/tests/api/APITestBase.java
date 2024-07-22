@@ -7,8 +7,11 @@ import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.*;
+import tests.TestData;
 
 public class APITestBase {
+    TestData data = new TestData();
+
     @BeforeAll
     static void beforeAll() {
         WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());

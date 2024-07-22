@@ -8,10 +8,14 @@ import drivers.*;
 import helpers.Attach;
 
 import org.junit.jupiter.api.*;
+import pages.MobilePage;
+import tests.TestData;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class MobileTestBase {
+    MobilePage mobilePage = new MobilePage();
+    TestData data = new TestData();
     public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll

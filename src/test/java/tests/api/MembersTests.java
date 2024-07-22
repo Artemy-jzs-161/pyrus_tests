@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Проверка методов Members")
 @ExtendWith(AuthParameterResolver.class)
 public class MembersTests extends APITestBase {
-    TestData data = new TestData();
     private MemberApi memberApi;
     private String accessToken;
 

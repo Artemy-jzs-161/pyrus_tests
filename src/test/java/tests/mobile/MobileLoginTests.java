@@ -16,8 +16,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 @Feature("Мобильная авторизация")
 @DisplayName("Тесты на мобильную авторизацию")
 public class MobileLoginTests extends MobileTestBase {
-    MobilePage mobilePage = new MobilePage();
-    TestData data = new TestData();
+
 
     @Test
     @Owner("borovikaa")
