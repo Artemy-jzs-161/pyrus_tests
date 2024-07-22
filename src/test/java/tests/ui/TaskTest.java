@@ -12,7 +12,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Story("Создайние задачи")
 @Feature("Создание простой задачи без шаблона")
 @DisplayName("Проверка создания задачи")
-public class TaskTest extends TestBase {
+public class TaskTest extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(CRITICAL)

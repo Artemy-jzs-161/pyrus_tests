@@ -12,7 +12,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 @Story("Проверка авторизации")
 @Feature("Стандартный вход по логину и паролю")
 @DisplayName("Проверка авторизации пользователей")
-public class LoginTests extends TestBase {
+public class LoginTests extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(BLOCKER)

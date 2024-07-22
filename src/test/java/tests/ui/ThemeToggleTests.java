@@ -12,7 +12,7 @@ import static io.qameta.allure.SeverityLevel.NORMAL;
 @Story("Тема оформления")
 @Feature("Включение темной темы")
 @DisplayName("Тестирование переключения тем")
-public class ThemeToggleTests extends TestBase {
+public class ThemeToggleTests extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(NORMAL)

@@ -12,7 +12,7 @@ import static io.qameta.allure.SeverityLevel.*;
 @Story("Поиск по ключевому слову")
 @Feature("Поиск по заголовкам статей")
 @DisplayName("Проверка работы поиска на странице \"Блог\"")
-public class BlogTests extends TestBase {
+public class BlogTests extends UITestBase {
     @Test
     @Owner("borovikaa")
     @Severity(NORMAL)

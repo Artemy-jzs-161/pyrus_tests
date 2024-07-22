@@ -2,14 +2,14 @@
 
 <html>
  <body> 
-   <p><a href="https://pyrus.com/ru"><img src="data/images/Pyrus_logo.png" width="800" 
+   <p><a href="https://pyrus.com/ru"><img src="media/images/Pyrus_logo.png" width="800" 
    height="300" alt="Pyrus"></a></p>
  </body> 
 </html>
 
 ## Содержание
 
-+ [Описание](#Описание)
+* <a href="#description">Описание</a>
 + [Технологии и инструменты](#Технологии-и-инструменты)
 + [Реализованные проверки](#Реализованные-проверки)
 + [Запуск тестов](#)
@@ -25,7 +25,8 @@
 + [Уведомления в Telegram с использованием бота](#telegram)
 + [Пример выполнения теста в Selenoid](#video)
 
-## #Описание
+<a id="description"></a>
+## Описание
 
 Pyrus — это система для автоматизации рабочих процессов, бизнес-коммуникаций, управления задачами и согласования
 документов. Pyrus является SaaS-приложением и представляет собой единую корпоративную коммуникационную среду, доступную
@@ -54,22 +55,22 @@ Pyrus — это система для автоматизации рабочих
 ## Технологии и инструменты
 
 <div align="center">
-<a href="https://www.jetbrains.com/idea/"><img alt="InteliJ IDEA" height="50" src="data/images/Idea.svg" width="50"/></a>
-<a href="https://github.com/"><img alt="GitHub" height="50" src="data/images/GitHub.svg" width="50"/></a>  
-<a href="https://www.java.com/"><img alt="Java" height="50" src="data/images/Java.svg" width="50"/></a>
-<a href="https://gradle.org/"><img alt="Gradle" height="50" src="data/images/Gradle.svg" width="50"/></a>  
-<a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="data/images/Junit5.svg" width="50"/></a>
-<a href="https://selenide.org/"><img alt="Selenide" height="50" src="data/images/Selenide.svg" width="50"/></a>
-<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="data/images/Selenoid.svg" width="50"/></a>
-<a href="https://rest-assured.io/"><img alt="RestAssured" height="50" src="data/images/RestAssured.svg" width="50"/></a>
-<a href="https://www.browserstack.com/"><img alt="Browserstack" height="50" src="data/images/Browserstack.svg" width="50"/></a>
-<a href="https://appium.io/"><img alt="Appium" height="50" src="data/images/Appium.svg" width="50"/></a>
-<a href="https://developer.android.com/studio"><img alt="Android Studio" height="50" src="data/images/Android_Studio.svg" width="50"/></a>
-<a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="data/images/Jenkins.svg" width="50"/></a>
-<a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="data/images/Allure.svg" width="50"/></a>
-<a href="https://qameta.io/"><img alt="Allure TestOps" height="50" src="data/images/Allure_TO.svg" width="50"/></a>
-<a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="data/images/Jira.svg" width="50"/></a>  
-<a href="https://telegram.org/"><img alt="Telegram" height="50" src="data/images/Telegram.svg" width="50"/></a>
+<a href="https://www.jetbrains.com/idea/"><img alt="InteliJ IDEA" height="50" src="media/images/Idea.svg" width="50"/></a>
+<a href="https://github.com/"><img alt="GitHub" height="50" src="media/images/GitHub.svg" width="50"/></a>  
+<a href="https://www.java.com/"><img alt="Java" height="50" src="media/images/Java.svg" width="50"/></a>
+<a href="https://gradle.org/"><img alt="Gradle" height="50" src="media/images/Gradle.svg" width="50"/></a>  
+<a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="media/images/Junit5.svg" width="50"/></a>
+<a href="https://selenide.org/"><img alt="Selenide" height="50" src="media/images/Selenide.svg" width="50"/></a>
+<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="media/images/Selenoid.svg" width="50"/></a>
+<a href="https://rest-assured.io/"><img alt="RestAssured" height="50" src="media/images/RestAssured.svg" width="50"/></a>
+<a href="https://www.browserstack.com/"><img alt="Browserstack" height="50" src="media/images/Browserstack.svg" width="50"/></a>
+<a href="https://appium.io/"><img alt="Appium" height="50" src="media/images/Appium.svg" width="50"/></a>
+<a href="https://developer.android.com/studio"><img alt="Android Studio" height="50" src="media/images/Android_Studio.svg" width="50"/></a>
+<a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="media/images/Jenkins.svg" width="50"/></a>
+<a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="media/images/Allure.svg" width="50"/></a>
+<a href="https://qameta.io/"><img alt="Allure TestOps" height="50" src="media/images/Allure_TO.svg" width="50"/></a>
+<a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="media/images/Jira.svg" width="50"/></a>  
+<a href="https://telegram.org/"><img alt="Telegram" height="50" src="media/images/Telegram.svg" width="50"/></a>
 </div>
 
 ## Реализованные проверки
@@ -223,7 +224,7 @@ gradle clean test -Denv=remote
 Для запуска сборки необходимо перейти в раздел `Build with Parameters` и нажать кнопку `Build`.
 Сборка с параметрами позволяет перед запуском задать нужные параметры для сборки:
 
-<img src="data/screenshot/jenkins.png">
+<img src="media/screenshot/jenkins.png">
 
 </details>
 
@@ -243,7 +244,7 @@ gradle clean test -Denv=remote
 `SUITES` - отображает распределение тестов по сьютам <br/>
 `CATEGORIES` - отображает распределение неудачных тестов по типам дефектов
 
-<img src="data/screenshot/allure.png">
+<img src="media/screenshot/allure.png">
 
 #### Развернутый результат прохождения тестов:
 
@@ -263,7 +264,7 @@ gradle clean test -Denv=remote
 
 Пример тест кейсов в Allure TestOps
 
-<img src="data/screenshot/allure_testOps.png">
+<img src="media/screenshot/allure_testOps.png">
 
 </details>
 
@@ -278,7 +279,7 @@ gradle clean test -Denv=remote
 
 В разделе `Allure:Test Cases` отображаются интегрированные автоматизированные и ручные тесты
 
-<img src="data/screenshot/jira.png">
+<img src="media/screenshot/jira.png">
 </details>
 
 <a id="telegram"></a>
@@ -288,7 +289,7 @@ gradle clean test -Denv=remote
 ### Бот, созданный в Telegram, после завершения сборки отправляет сообщение с отчетом о прохождении тестов
 
 <details>
-<img src="data/screenshot/telegram.png">
+<img src="media/screenshot/telegram.png">
 </details>
 
 <a id="video"></a>
@@ -298,10 +299,10 @@ gradle clean test -Denv=remote
 
 ### К каждому UI-тесту в отчете прилагается видео
 
-<img title="Selenoid Video" src="data/video/ui.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="media/video/ui.gif" width="550" height="350"  alt="video">   
 
 ### К каждому мобильному тесту, выполняемому в Browserstack, к отчету прилагается видео
 
-<img title="Selenoid Video" src="data/video/mobile.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="media/video/mobile.gif" width="550" height="350"  alt="video">   
 
 </details>

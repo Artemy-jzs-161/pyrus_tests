@@ -8,11 +8,10 @@ import drivers.*;
 import helpers.Attach;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestBase {
+public class MobileTestBase {
     public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll

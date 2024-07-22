@@ -12,7 +12,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 
 import org.junit.jupiter.api.*;
 
-public class TestBase {
+public class UITestBase {
     TestData data = new TestData();
     GreetingWebPage greetingPages = new GreetingWebPage();
     AccountsWebPage accountsPage = new AccountsWebPage();

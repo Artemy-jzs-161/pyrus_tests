@@ -8,7 +8,7 @@ import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.*;
 
-public class TestBase {
+public class APITestBase {
     @BeforeAll
     static void beforeAll() {
         WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());

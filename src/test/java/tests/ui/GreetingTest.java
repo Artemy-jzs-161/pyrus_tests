@@ -17,7 +17,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Story("Проверка доступности основных страниц")
 @Feature("Проверка ссылок")
 @DisplayName("Проверки на странице приветствия")
-public class GreetingTest extends TestBase {
+public class GreetingTest extends UITestBase {
     static Stream<Arguments> checkLinkOnGreetingPageTests() {
         return Stream.of(
                 Arguments.of(
