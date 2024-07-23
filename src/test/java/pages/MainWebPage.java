@@ -3,7 +3,9 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class MainWebPage {
     private final SelenideElement
@@ -11,11 +13,11 @@ public class MainWebPage {
             newTaskButton = $(".primaryButtonWithDropdown__text"),
             titleFieldElement = $("trix-editor[aria-label='Заголовок новой задачи']"),
             taskDescriptionFieldElement = $("trix-editor[aria-label='Описание задачи']"),
-            sendButton = $x("/html/body/div[6]/div/div/div[1]/div/div[2]/div[6]/div/button[1]/span"),
+            sendButton = $("button[data-test-id='btnSaveTask'] span[data-test-id='ButtonContent']"),
             settingButton = $("button[aria-label='Настройки'] svg[aria-hidden='true']"),
-            linkPreferencesPage = $x("/html/body/div[5]/div[2]/div/div/ul[1]/li[2]/a"),
+            linkPreferencesPage = $(byText("Предпочтения")),
             checkNameTask = $("div[class='virtualList__itemsScroller']");
-
+    
     public MainWebPage checkCompanyName(String companyName) {
         avatarMenuOrgInfoElement.shouldHave(text(companyName));
         return this;

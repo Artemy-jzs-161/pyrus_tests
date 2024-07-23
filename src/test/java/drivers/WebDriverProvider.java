@@ -3,6 +3,7 @@ package drivers;
 import com.codeborne.selenide.Configuration;
 import config.AuthSelenoidConfig;
 import config.WebDriverConfig;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,7 +12,6 @@ import java.util.Map;
 public class WebDriverProvider {
     static WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     static AuthSelenoidConfig authSelenoidConfig = ConfigFactory.create(AuthSelenoidConfig.class, System.getProperties());
-    public static String url;
 
     public static void config() {
         Configuration.browser = WebDriverProvider.webDriverConfig.getBrowser();
@@ -22,7 +22,7 @@ public class WebDriverProvider {
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 100000;
 
-        url = WebDriverProvider.webDriverConfig.getRemoteUrl();
+        String url = WebDriverProvider.webDriverConfig.getRemoteUrl();
         if (url != null) {
             Configuration.remote = "https://"
                     + WebDriverProvider.authSelenoidConfig.getRemoteUsername() + ":"

@@ -3,6 +3,7 @@ package tests.ui;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.*;
 import helpers.Attach;
 import tests.TestData;
@@ -22,6 +23,7 @@ public class UITestBase {
 
     @BeforeAll
     static void beforeAll() {
+        WebDriverManager.chromedriver().setup();
         WebDriverProvider.config();
     }
 

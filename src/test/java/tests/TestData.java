@@ -23,7 +23,6 @@ public class TestData {
     public String backgroundColorBlackTheme = "#1c1e21";
     public String incorrectPasswordMessageMobile = "The password you entered is incorrect";
 
-
     public MembersRequestModel BorovikA() {
         return MembersRequestModel.builder()
                 .id(1108384)
