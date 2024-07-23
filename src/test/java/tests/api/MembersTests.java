@@ -44,7 +44,6 @@ public class MembersTests extends APITestBase {
                 memberApi.getAllMember());
 
         step("Проверка, что список сотрудников не пустой", () -> {
-            assertNotNull(membersResponse, "Ответ не должен быть null");
             assertFalse(membersResponse.getMemberModels().isEmpty(),
                     "Список пользователей не должен быть пустым");
         });
@@ -58,9 +57,6 @@ public class MembersTests extends APITestBase {
     void getIdMembersTest() {
         MemberModel memberModel = step("Отправка запроса на получение пользователя по id", () ->
                 memberApi.getMember(String.valueOf(data.BorovikA().getId())));
-
-        step("Проверка, что ответ не пустой", () ->
-                assertNotNull(memberApi, "Ответ не должен быть null"));
 
         step("Проверить, что запрос выдал нужного пользователя", () ->
                 assertEquals(data.BorovikA().getLastName(), memberModel.getLastName(),
@@ -76,9 +72,6 @@ public class MembersTests extends APITestBase {
         step("Отправка запроса на получение пользователя по id", () -> {
             memberApi.getMemberError(String.valueOf(data.randomId));
         });
-
-        step("Проверка, что ответ не пустой", () ->
-                assertNotNull(memberApi, "Ответ не должен быть null"));
 
         step("Проверка, названия и кода ошибки", () -> {
             assertEquals("Произошла непредвиденная ошибка.",
@@ -101,7 +94,6 @@ public class MembersTests extends APITestBase {
                 memberApi.createMember(newMember));
 
         step("Проверка создания пользователя", () -> {
-            assertNotNull(memberApi, "Ответ не должен быть null");
             assertEquals(newMember.getFirstName(), member.getFirstName(), "Имя пользователей совпадают");
         });
     }
