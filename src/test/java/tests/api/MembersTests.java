@@ -43,10 +43,9 @@ public class MembersTests extends APITestBase {
         MembersResponseModel membersResponse = step("Отправка запроса на получение всех пользователей", () ->
                 memberApi.getAllMember());
 
-        step("Проверка, что список сотрудников не пустой", () -> {
-            assertFalse(membersResponse.getMemberModels().isEmpty(),
-                    "Список пользователей не должен быть пустым");
-        });
+        step("Проверка, что список сотрудников не пустой", () ->
+                assertFalse(membersResponse.getMemberModels().isEmpty(),
+                        "Список пользователей не должен быть пустым"));
     }
 
     @Test
@@ -93,9 +92,8 @@ public class MembersTests extends APITestBase {
         MembersRequestModel member = step("Отправка запроса на создание нового пользователя", () ->
                 memberApi.createMember(newMember));
 
-        step("Проверка создания пользователя", () -> {
-            assertEquals(newMember.getFirstName(), member.getFirstName(), "Имя пользователей совпадают");
-        });
+        step("Проверка создания пользователя", () ->
+                assertEquals(newMember.getFirstName(), member.getFirstName(), "Имя пользователей совпадают"));
     }
 
     @Test
