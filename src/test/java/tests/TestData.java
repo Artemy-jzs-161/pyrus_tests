@@ -24,28 +24,37 @@ public class TestData {
     public String incorrectPasswordMessageMobile = "The password you entered is incorrect";
 
 
-    public MembersRequestModel BorovikA = new MembersRequestModel(
-            1108384,
-            "Артем",
-            "Боровик");
+    public MembersRequestModel BorovikA() {
+        return MembersRequestModel.builder()
+                .id(1108384)
+                .firstName("Артем")
+                .lastName("Боровик")
+                .build();
+    }
 
-    public MembersRequestModel memberFirst = new MembersRequestModel(
-            faker.name().firstName(),
-            faker.name().lastName(),
-            faker.internet().emailAddress(),
-            faker.job().position(),
-            faker.idNumber().valid().indexOf(3),
-            faker.name().username(),
-            faker.phoneNumber().phoneNumber(),
-            faker.pokemon().name());
+    public MembersRequestModel memberFirst() {
+        return MembersRequestModel.builder()
+                .firstName(faker.name().firstName())
+                .lastName(faker.name().lastName())
+                .email(faker.internet().emailAddress())
+                .position(faker.job().position())
+                .department(faker.idNumber().valid().indexOf(3))
+                .skype(faker.name().username())
+                .phone(faker.phoneNumber().phoneNumber())
+                .status(faker.pokemon().name())
+                .build();
+    }
 
-    public MembersRequestModel memberSecond = new MembersRequestModel(
-            faker.name().firstName(),
-            faker.name().lastName(),
-            faker.internet().emailAddress(),
-            faker.job().position(),
-            faker.idNumber().valid().indexOf(3),
-            faker.name().username(),
-            faker.phoneNumber().phoneNumber(),
-            faker.pokemon().name());
+    public MembersRequestModel memberSecond() {
+        return MembersRequestModel.builder()
+                .firstName(faker.name().firstName())
+                .lastName(faker.name().lastName())
+                .email(faker.internet().emailAddress())
+                .position(faker.job().position())
+                .department(faker.idNumber().valid().indexOf(3))
+                .skype(faker.name().username())
+                .phone(faker.phoneNumber().phoneNumber())
+                .status(faker.pokemon().name())
+                .build();
+    }
 }

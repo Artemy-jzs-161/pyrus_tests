@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MembersRequestModel {
     private int id;
@@ -21,20 +22,5 @@ public class MembersRequestModel {
     private String phone;
     private String status;
 
-    public MembersRequestModel(String firstName, String lastName, String email, String position, int department, String skype, String phone, String status) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.position = position;
-        this.department = department;
-        this.skype = skype;
-        this.phone = phone;
-        this.status = status;
-    }
 
-    public MembersRequestModel(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 }

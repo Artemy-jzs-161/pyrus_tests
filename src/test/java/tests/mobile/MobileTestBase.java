@@ -27,7 +27,6 @@ public class MobileTestBase {
         Configuration.browserSize = null;
     }
 
-
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
