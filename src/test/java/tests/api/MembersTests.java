@@ -59,9 +59,8 @@ public class MembersTests extends APITestBase {
         MemberModel memberModel = step("Отправка запроса на получение пользователя по id", () ->
                 memberApi.getMember(String.valueOf(data.BorovikA().getId())));
 
-        step("Проверка, что ответ не пустой", () -> {
-            assertNotNull(memberApi, "Ответ не должен быть null");
-        });
+        step("Проверка, что ответ не пустой", () ->
+                assertNotNull(memberApi, "Ответ не должен быть null"));
 
         step("Проверить, что запрос выдал нужного пользователя", () ->
                 assertEquals(data.BorovikA().getLastName(), memberModel.getLastName(),
