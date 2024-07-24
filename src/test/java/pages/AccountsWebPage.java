@@ -22,12 +22,12 @@ public class AccountsWebPage {
         return this;
     }
 
-    public AccountsWebPage checkingIncorrectPassword(String value) {
+    public AccountsWebPage checkLoginWithIncorrectPassword(String value) {
         inputToolTipText.shouldHave(text(value));
         return this;
     }
 
-    public AccountsWebPage checkingIncorrectLogin(String value) {
+    public AccountsWebPage checkLoginWithIncorrectEmail(String value) {
         titleCreateCompanyElement.shouldHave(text(value));
         return this;
     }

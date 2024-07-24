@@ -36,7 +36,7 @@ public class LoginTests extends UITestBase {
         step("Ввести логин", () -> accountsPage.enterLogin(data.email));
         step("Ввести пароль", () -> accountsPage.enterPassword(data.incorrectPassword));
         step("Проверить, что высветилось оповещение о неправильном пароле", () ->
-                accountsPage.checkingIncorrectPassword(data.incorrectPasswordMessage));
+                accountsPage.checkLoginWithIncorrectPassword(data.incorrectPasswordMessage));
     }
 
     @Test
@@ -48,6 +48,6 @@ public class LoginTests extends UITestBase {
         step("Нажать кнопку \"Войти\"", () -> greetingPages.pressLoginButton());
         step("Ввести логин", () -> accountsPage.enterLogin(data.incorrectEmail));
         step("Проверить, что появилось окно создания новой компании", () ->
-                accountsPage.checkingIncorrectLogin(data.titleCreateCompany));
+                accountsPage.checkLoginWithIncorrectEmail(data.titleCreateCompany));
     }
 }

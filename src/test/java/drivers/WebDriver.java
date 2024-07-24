@@ -2,31 +2,30 @@ package drivers;
 
 import com.codeborne.selenide.Configuration;
 import config.AuthSelenoidConfig;
-import config.WebDriverConfig;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import config.WebConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
-public class WebDriverProvider {
-    static WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+public class WebDriver {
+    static WebConfig webDriverConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
     static AuthSelenoidConfig authSelenoidConfig = ConfigFactory.create(AuthSelenoidConfig.class, System.getProperties());
 
     public static void config() {
-        Configuration.browser = WebDriverProvider.webDriverConfig.getBrowser();
-        Configuration.browserVersion = WebDriverProvider.webDriverConfig.getBrowserVersion();
-        Configuration.browserSize = WebDriverProvider.webDriverConfig.getBrowserSize();
-        Configuration.baseUrl = WebDriverProvider.webDriverConfig.getBaseUrl();
+        Configuration.browser = WebDriver.webDriverConfig.getBrowser();
+        Configuration.browserVersion = WebDriver.webDriverConfig.getBrowserVersion();
+        Configuration.browserSize = WebDriver.webDriverConfig.getBrowserSize();
+        Configuration.baseUrl = WebDriver.webDriverConfig.getBaseUrl();
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 100000;
 
-        String url = WebDriverProvider.webDriverConfig.getRemoteUrl();
+        String url = WebDriver.webDriverConfig.getRemoteUrl();
         if (url != null) {
             Configuration.remote = "https://"
-                    + WebDriverProvider.authSelenoidConfig.getRemoteUsername() + ":"
-                    + WebDriverProvider.authSelenoidConfig.getRemotePassword() + "@"
+                    + WebDriver.authSelenoidConfig.getRemoteUsername() + ":"
+                    + WebDriver.authSelenoidConfig.getRemotePassword() + "@"
                     + url + "/wd/hub";
 
             DesiredCapabilities capabilities = new DesiredCapabilities();

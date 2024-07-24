@@ -2,7 +2,7 @@ package tests.api;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.WebDriverConfig;
+import config.WebConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
@@ -14,7 +14,7 @@ public class APITestBase {
 
     @BeforeAll
     static void beforeAll() {
-        WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+        WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
         RestAssured.baseURI = "https://api.pyrus.com/";
         Configuration.baseUrl = "https://pyrus.com/";
         RestAssured.basePath = "v4/";

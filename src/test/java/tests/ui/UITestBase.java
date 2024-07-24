@@ -8,7 +8,7 @@ import pages.*;
 import helpers.Attach;
 import tests.TestData;
 
-import drivers.WebDriverProvider;
+import drivers.WebDriver;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import org.junit.jupiter.api.*;
@@ -24,7 +24,7 @@ public class UITestBase {
     @BeforeAll
     static void beforeAll() {
         WebDriverManager.chromedriver().setup();
-        WebDriverProvider.config();
+        WebDriver.config();
     }
 
     @BeforeEach
