@@ -1,4 +1,4 @@
-package pages;
+package pages.ui;
 
 import com.codeborne.selenide.*;
 
@@ -32,6 +32,11 @@ public class GreetingWebPage {
         for (String expectedButton : expectedButtons) {
             headerMenuElements.find(text(expectedButton)).shouldBe(text(expectedButton));
         }
+        return this;
+    }
+
+    public GreetingWebPage checkHeader1(List<String> expectedButtons) {
+        headerMenuElements.shouldHave(CollectionCondition.texts(expectedButtons));
         return this;
     }
 }

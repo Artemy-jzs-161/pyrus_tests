@@ -33,6 +33,6 @@ public class BlogTests extends UITestBase {
         step("Нажать кнопку \"Кейсы\"", () -> greetingPages.pressBlogPage());
         step("Ввести информацию", () -> blogWebPage.searchInfo(data.noExistArticle));
         step("Проверить, что в блоге ничего не найдено", () ->
-                blogWebPage.checkNulLResultMessage(data.elementSearchResultMissing));
+                blogWebPage.checkEmptyResultMessageTest(data.elementSearchResultMissing));
     }
 }

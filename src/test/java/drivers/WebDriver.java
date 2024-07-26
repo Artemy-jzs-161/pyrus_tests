@@ -2,17 +2,20 @@ package drivers;
 
 import com.codeborne.selenide.Configuration;
 import config.AuthSelenoidConfig;
-import config.WebConfig;
+import config.WebDriverConfig;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
 public class WebDriver {
-    static WebConfig webDriverConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
+    static WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     static AuthSelenoidConfig authSelenoidConfig = ConfigFactory.create(AuthSelenoidConfig.class, System.getProperties());
 
     public static void config() {
+        ChromeDriverManager.getInstance().setup();
+
         Configuration.browser = WebDriver.webDriverConfig.getBrowser();
         Configuration.browserVersion = WebDriver.webDriverConfig.getBrowserVersion();
         Configuration.browserSize = WebDriver.webDriverConfig.getBrowserSize();

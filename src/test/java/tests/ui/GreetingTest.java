@@ -37,7 +37,7 @@ public class GreetingTest extends UITestBase {
     @DisplayName("Проверить ссылки при переключнии языка")
     void checkLinkOnGreetingPageTests(Language language, List<String> expectedButtons) {
         step("Открыть страницу", () -> greetingPages.openPage(language.name()));
-        step("Проверить ссылки", () -> greetingPages.checkHeader(expectedButtons));
+        step("Проверить ссылки", () -> greetingPages.checkHeader1(expectedButtons));
     }
 }
 

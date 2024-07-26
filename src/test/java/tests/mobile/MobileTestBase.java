@@ -8,7 +8,7 @@ import drivers.*;
 import helpers.Attach;
 
 import org.junit.jupiter.api.*;
-import pages.MobilePage;
+import pages.mobile.MobilePage;
 import tests.TestData;
 
 import static com.codeborne.selenide.Selenide.*;

@@ -3,9 +3,8 @@ package tests.ui;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import pages.*;
 import helpers.Attach;
+import pages.ui.*;
 import tests.TestData;
 
 import drivers.WebDriver;
@@ -23,11 +22,11 @@ public class UITestBase {
 
     @BeforeAll
     static void beforeAll() {
-        WebDriverManager.chromedriver().setup();
         WebDriver.config();
     }
 
     @BeforeEach
+
     void selenideListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }

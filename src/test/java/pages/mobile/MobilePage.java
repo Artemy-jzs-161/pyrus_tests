@@ -1,4 +1,4 @@
-package pages;
+package pages.mobile;
 
 import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;

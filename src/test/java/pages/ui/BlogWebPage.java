@@ -1,4 +1,4 @@
-package pages;
+package pages.ui;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -21,7 +21,7 @@ public class BlogWebPage {
         return this;
     }
 
-    public BlogWebPage checkNulLResultMessage(String info) {
+    public BlogWebPage checkEmptyResultMessageTest(String info) {
         noResultMessage.shouldHave(text(info));
         return this;
     }

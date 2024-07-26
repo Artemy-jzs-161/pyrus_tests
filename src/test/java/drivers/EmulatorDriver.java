@@ -18,7 +18,7 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 public class EmulatorDriver implements WebDriverProvider {
     @Nonnull
     @Override
-    public WebDriver createDriver(@Nonnull Capabilities capabilities) {
+    public AndroidDriver createDriver(@Nonnull Capabilities capabilities) {
         EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
         UiAutomator2Options options = new UiAutomator2Options();
 
