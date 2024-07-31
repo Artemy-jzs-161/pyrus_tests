@@ -1,7 +1,7 @@
 package data;
 
 import com.github.javafaker.Faker;
-import api.models.members.MembersRequestModel;
+import tests.api.models.members.MembersRequestModel;
 
 public class TestData {
     Faker faker = new Faker();
